@@ -10,6 +10,21 @@ export default {
   data() {
     return {
       viewer: "",
+      imgurl1: require("@/assets/pic/node1.jpg"),
+      imgurl2: require("@/assets/pic/node2.jpg"),
+      imgurl3: require("@/assets/pic/node3.jpg"),
+      imgurl4: require("@/assets/pic/node4.jpg"),
+      imgurl5: require("@/assets/pic/node5.jpg"),
+      imgurl6: require("@/assets/pic/node6.jpg"),
+      imgurl7: require("@/assets/pic/node7.jpg"),
+      imgurl8: require("@/assets/pic/node8.jpg"),
+      imgurl9: require("@/assets/pic/node9.jpg"),
+      imgurl10: require("@/assets/pic/node10.jpg"),
+      imgurl11: require("@/assets/pic/node11.jpg"),
+      imgurl12: require("@/assets/pic/node12.jpg"),
+      imgurl13: require("@/assets/pic/node13.jpg"),
+      imgurl14: require("@/assets/pic/node14.jpg"),
+      imgurl15: require("@/assets/pic/node15.jpg"),
       imgurl16: require("@/assets/pic/node16.jpg"),
       imgurl17: require("@/assets/pic/node17.jpg"),
       imgurl18: require("@/assets/pic/node18.jpg"),
@@ -44,6 +59,13 @@ export default {
       imgurl47: require("@/assets/pic/node47.jpg"),
       imgurl48: require("@/assets/pic/node48.jpg"),
       imgurl49: require("@/assets/pic/node49.jpg"),
+      imgurl50: require("@/assets/pic/node50.jpg"),
+      imgurl51: require("@/assets/pic/node51.jpg"),
+      imgurl52: require("@/assets/pic/node52.jpg"),
+      imgurl53: require("@/assets/pic/node53.jpg"),
+      imgurl54: require("@/assets/pic/node54.jpg"),
+      imgurl55: require("@/assets/pic/node55.jpg"),
+      imgurl56: require("@/assets/pic/node56.jpg")
     };
   },
   mounted() {
@@ -65,8 +87,8 @@ export default {
         "caption"
       ], // 下方导航栏
       defaultZoomLvl: 0,//默认缩放
-      defaultLong:0.0027446609001040845,//经度
-      defaultLat:0.015220228499811306,//维度
+      defaultLong:1.70,//经度
+      defaultLat: 0.0,//维度
       //autorotateDelay:1,//1毫秒后启动自动旋转
       plugins: [
         [
@@ -74,22 +96,31 @@ export default {
           {
             markers: [
               {
-                id: "circle16", //标记的唯一标识符
-                tooltip: "午门", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "#ccc",
-                  strokeWidth: "2px", //边框
-                },
-                visible: true, //标记的初始可见性。默认true
+                id: "circle16",
+                tooltip: "午门",
                 longitude: 1.6, //位置
-                latitude: 0.06, //位置
-                anchor: "center right",
-                // content: "9999999999", //点击标记后侧边列表框显示的内容
-                // image: 'assets/aim.png',
-                // defaultZoomLvl:-30
+                latitude: 0.06, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32
               },
+              // {
+              //   id: "circle16", //标记的唯一标识符
+              //   tooltip: "午门", //提示的内容
+              //   circle: 15, //直径
+              //   svgStyle: {
+              //     fill: "rgba(255,255,0,0.3)",
+              //     stroke: "#ccc",
+              //     strokeWidth: "2px", //边框
+              //   },
+              //   visible: true, //标记的初始可见性。默认true
+              //   longitude: 1.6, //位置
+              //   latitude: 0.06, //位置
+              //   anchor: "center right",
+              //   // content: "9999999999", //点击标记后侧边列表框显示的内容
+              //   // image: 'assets/aim.png',
+              //   // defaultZoomLvl:-30
+              // },
               {
                 id: "circle17", //标记的唯一标识符
                 tooltip: "17", //提示的内容
@@ -178,287 +209,192 @@ export default {
               {
                 id: "circle25", //标记的唯一标识符
                 tooltip: "前进", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -2.2, //位置
                 latitude: 0.00, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle26", //标记的唯一标识符
                 tooltip: "进门", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: 0.2, //位置
                 latitude: 0.00, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle27", //标记的唯一标识符
                 tooltip: "太和门", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
-                longitude: 1.5, //位置
+                longitude: 1.9, //位置
                 latitude: 0.0, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle28", //标记的唯一标识符
                 tooltip: "circle28", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle29", //标记的唯一标识符
-                tooltip: "circle29", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
-                longitude: -1.6, //位置
-                latitude: -0.28, //位置
-                anchor: "center right",
+                tooltip: "向左", //提示的内容
+                longitude: 2.00, //位置
+                latitude: 0.0, //位置
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle30", //标记的唯一标识符
-                tooltip: "circle30", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
+                tooltip: "武英殿", //提示的内容
                 longitude: -1.6, //位置
-                latitude: -0.28, //位置
-                anchor: "center right",
+                latitude: 0.20, //位置
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle31", //标记的唯一标识符
                 tooltip: "circle31", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle32", //标记的唯一标识符
                 tooltip: "circle32", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle33", //标记的唯一标识符
                 tooltip: "circle33", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle34", //标记的唯一标识符
                 tooltip: "circle34", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle35", //标记的唯一标识符
                 tooltip: "circle35", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle36", //标记的唯一标识符
-                tooltip: "circle36", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
+                tooltip: "前进", //提示的内容
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle37", //标记的唯一标识符
-                tooltip: "circle37", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
+                tooltip: "前进", //提示的内容
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle38", //标记的唯一标识符
-                tooltip: "circle38", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
+                tooltip: "进门", //提示的内容
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle39", //标记的唯一标识符
                 tooltip: "circle39", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle40", //标记的唯一标识符
                 tooltip: "circle40", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle41", //标记的唯一标识符
                 tooltip: "circle41", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle42", //标记的唯一标识符
                 tooltip: "circle42", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
               {
                 id: "circle43", //标记的唯一标识符
                 tooltip: "circle43", //提示的内容
-                circle: 15, //直径
-                svgStyle: {
-                  fill: "rgba(255,255,0,0.3)",
-                  stroke: "red",
-                  strokeWidth: "2px", //边框
-                },
                 longitude: -1.6, //位置
                 latitude: -0.28, //位置
-                anchor: "center right",
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
                 visible: false, //标记的初始可见性。默认true
-                // image: this.imgurl3,
               },
             ],
           },
@@ -507,8 +443,8 @@ export default {
         .animate({
           longitude: marker.config.longitude,
           latitude: marker.config.latitude,
-          zoom: 70,
-          speed: "0.5rpm",
+          // zoom: 50,
+          speed: "5rpm",
         })
         // .then(() =>
         //   this.viewer.setPanorama(this.imgurl2).then(
@@ -562,19 +498,19 @@ export default {
             .then(() => markersPlugin.showMarker("circle20"));
           }
           if (markerid == "circle25") {
-            this.viewer.setPanorama(this.imgurl26,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
+            this.viewer.setPanorama(this.imgurl26,{ longitude: 18.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle26"));
           }
           if (markerid == "circle26") {
-            this.viewer.setPanorama(this.imgurl27,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
+            this.viewer.setPanorama(this.imgurl27,{ longitude: 14.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle27"));
           }
           if (markerid == "circle27") {
-            this.viewer.setPanorama(this.imgurl29,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
+            this.viewer.setPanorama(this.imgurl29,{ longitude: -16.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle29"));
           }
           if (markerid == "circle29") {
-            this.viewer.setPanorama(this.imgurl30)
+            this.viewer.setPanorama(this.imgurl30,{ longitude: 5.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle30"));
           }
           if (markerid == "circle30") {
@@ -592,6 +528,14 @@ export default {
           if (markerid == "circle38") {
             this.viewer.setPanorama(this.imgurl39)
             .then(() => markersPlugin.showMarker("circle39"));
+          }
+          if (markerid == "circle39") {
+            this.viewer.setPanorama(this.imgurl40)
+            .then(() => markersPlugin.showMarker("circle40"));
+          }
+          if (markerid == "circle40") {
+            this.viewer.setPanorama(this.imgurl52)
+            .then(() => markersPlugin.showMarker("circle52"));
           }
           this.viewer.zoom(0)//改变缩放
           // this.viewer.setOption('defaultLong',100);
