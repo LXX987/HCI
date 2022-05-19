@@ -98,13 +98,28 @@ export default {
       imgurl53: require("@/assets/pic/node53.jpg"),
       imgurl54: require("@/assets/pic/node54.jpg"),
       imgurl55: require("@/assets/pic/node55.jpg"),
-      imgurl56: require("@/assets/pic/node56.jpg")
+      imgurl56: require("@/assets/pic/node56.jpg"),
+      imgurl57: require("@/assets/pic/node57.jpg"),
+      imgurl58: require("@/assets/pic/node58.jpg"),
+      imgurl59: require("@/assets/pic/node59.jpg"),
+      imgurl60: require("@/assets/pic/node60.jpg"),
+      imgurl61: require("@/assets/pic/node61.jpg"),
+      imgurl62: require("@/assets/pic/node62.jpg"),
+      imgurl63: require("@/assets/pic/node63.jpg"),
+      imgurl64: require("@/assets/pic/node64.jpg"),
+      imgurl65: require("@/assets/pic/node65.jpg"),
+      imgurl66: require("@/assets/pic/node66.jpg"),
+      imgurl67: require("@/assets/pic/node67.jpg"),
     };
   },
+  methods: {
+    
+  },
   mounted() {
+    // this.demo();
     this.viewer = new Viewer({
       container: document.querySelector("#viewer"),
-      panorama: this.imgurl16,
+      panorama: this.imgurl63,
       size: {
         width: "100vw",
         height: "100vh",
@@ -120,7 +135,7 @@ export default {
         "caption"
       ], // 下方导航栏
       defaultZoomLvl: 0,//默认缩放
-      defaultLong:1.70,//经度
+      defaultLong: 0.00,//经度
       defaultLat: 0.0,//维度
       //autorotateDelay:1,//1毫秒后启动自动旋转
       plugins: [
@@ -129,13 +144,53 @@ export default {
           {
             markers: [
               {
+                id: "circle63",
+                tooltip: "出门",//太和殿内出去
+                longitude: -7.8, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle64",
+                tooltip: "太和殿内",//太和殿内
+                longitude: 0.0, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+              },
+              {
+                id: "circle64(1)",
+                tooltip: "太和殿大厅",//太和殿内
+                longitude: -16.2, //位置
+                latitude: -0.40, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle65",
+                tooltip: "前进",//太和殿内上皇上的椅子
+                longitude: 7.8, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
                 id: "circle16",
                 tooltip: "午门",
                 longitude: 1.6, //位置
                 latitude: 0.06, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
-                height: 32
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
               },
               // {
               //   id: "circle16", //标记的唯一标识符
@@ -505,6 +560,44 @@ export default {
           // this.viewer.rotate({x: 1500,y: 600,});//改变摄像机的位置
           markersPlugin.hideMarker(marker.id);//隐藏点击的marker
           // this.viewer.defaultZoomLvl=0
+          if (markerid == "circle63") {
+            
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.hideMarker("circle65");
+                markersPlugin.showMarker("circle64");//显示你需要显示的marker
+                
+              }
+            );
+          }
+          if (markerid == "circle64") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.showMarker("circle65");//显示你需要显示的marker
+                markersPlugin.showMarker("circle63");
+              }
+            );
+          }
+          if (markerid == "circle64(1)") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.showMarker("circle65");//显示你需要显示的marker
+                markersPlugin.showMarker("circle63");
+              }
+            );
+          }
+          if (markerid == "circle65") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl65,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
+                markersPlugin.hideMarker("circle63");
+              }
+            );
+          }
           if (markerid == "circle16") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl25,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true).then(() => {
