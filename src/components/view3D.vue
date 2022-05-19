@@ -1,14 +1,47 @@
 <template>
+<div>
   <div id="viewer"></div>
+  <div id="test" v-show="showtest"><!-- 在node25会显示，node26会隐藏 -->
+    <el-button @click="drawer = true" type="primary" class="drawerButton">
+      点我打开
+    </el-button>
+    <el-drawer title="我是标题" :visible.sync="drawer" :with-header="false"><span>我来啦!</span></el-drawer>
+  </div>
+  <!-- <div id="test" v-show="showtest">
+    <Test></Test>这种是引入组件的方式，引入test组件，然后在node25会显示，node26会自动隐藏
+  </div> -->
+</div>
 </template>
+<style scoped>
+.drawerButton {
+  position: absolute;
+  left: 200px;
+  height: 200px;
+  top: 100px;
+  z-index: 999;
+}
+#test {
+    position: absolute;
+    left: 200px;
+    height: 200px;
+    top: 100px;
+}
+</style>
 <script>
 import {Viewer} from "photo-sphere-viewer";
 import {MarkersPlugin} from "photo-sphere-viewer/dist/plugins/markers"; //Markers插件
 import "photo-sphere-viewer/dist/photo-sphere-viewer.css";
 import "photo-sphere-viewer/dist/plugins/markers.css"; //Markers插件
+import Test from './test.vue';
 export default {
+  name:'view3D',
+    components:{ 
+        Test,
+    },
   data() {
     return {
+      drawer: false,
+      showtest: 0,
       viewer: "",
       imgurl1: require("@/assets/pic/node1.jpg"),
       imgurl2: require("@/assets/pic/node2.jpg"),
@@ -492,16 +525,20 @@ export default {
             this.viewer
               .setPanorama(this.imgurl19,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
               .then(() => markersPlugin.showMarker("circle19"));
+              
           }
           if (markerid == "circle19") {
+            
             this.viewer.setPanorama(this.imgurl20)
             .then(() => markersPlugin.showMarker("circle20"));
           }
           if (markerid == "circle25") {
             this.viewer.setPanorama(this.imgurl26,{ longitude: 18.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle26"));
+            this.showtest = 1;
           }
           if (markerid == "circle26") {
+            this.showtest = 0;
             this.viewer.setPanorama(this.imgurl27,{ longitude: 14.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle27"));
           }
@@ -514,10 +551,13 @@ export default {
             .then(() => markersPlugin.showMarker("circle30"));
           }
           if (markerid == "circle30") {
+            this.showtest = 1;
+            console.log("show");
             this.viewer.setPanorama(this.imgurl36)
             .then(() => markersPlugin.showMarker("circle36"));
           }
           if (markerid == "circle36") {
+            this.showtest = 0;
             this.viewer.setPanorama(this.imgurl37)
             .then(() => markersPlugin.showMarker("circle37"));
           }
