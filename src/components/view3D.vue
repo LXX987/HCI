@@ -110,6 +110,10 @@ export default {
       imgurl65: require("@/assets/pic/node65.jpg"),
       imgurl66: require("@/assets/pic/node66.jpg"),
       imgurl67: require("@/assets/pic/node67.jpg"),
+      imgurl68: require("@/assets/pic/node68.jpg"),  
+      imgurl69: require("@/assets/pic/node69.jpg"),  
+      imgurl70: require("@/assets/pic/node70.jpg"),  
+      imgurl71: require("@/assets/pic/node71.jpg"),    
     };
   },
   methods: {
@@ -176,6 +180,56 @@ export default {
                 id: "circle65",
                 tooltip: "前进",//太和殿内上皇上的椅子
                 longitude: 7.8, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle66",
+                tooltip: "左侧进入",//太和殿内上皇上的椅子
+                longitude: -1.0, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                // visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle67",
+                tooltip: "右层进入",//太和殿内上皇上的椅子
+                longitude: 0.95, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                // visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle68",
+                tooltip: "前进",//太和殿内上皇上的椅子
+                longitude: -1.3, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle68(1)",
+                tooltip: "前进",//太和殿内上皇上的椅子
+                longitude: 1.3, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle69",
+                tooltip: "前进",//太和殿内上皇上的椅子
+                longitude: 0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
@@ -595,6 +649,46 @@ export default {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
                 markersPlugin.hideMarker("circle63");
+              }
+            );
+          }
+          if (markerid == "circle66") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl66,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.showMarker("circle68(1)");//显示你需要显示的marker
+                markersPlugin.hideMarker("circle64");
+                markersPlugin.hideMarker("circle67");
+              }
+            );
+          }
+          if (markerid == "circle67") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl67,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                markersPlugin.showMarker("circle68");//显示你需要显示的marker
+                markersPlugin.hideMarker("circle64");
+                markersPlugin.hideMarker("circle66");
+              }
+            );
+          }
+          if (markerid == "circle68") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
+                // markersPlugin.hideMarker("circle64");
+                // markersPlugin.hideMarker("circle66");
+              }
+            );
+          }
+          if (markerid == "circle68(1)") {
+            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              // this.viewer.setPanorama(this.imgurl25).then(() => {
+                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
+                // markersPlugin.hideMarker("circle64");
+                // markersPlugin.hideMarker("circle66");
               }
             );
           }
