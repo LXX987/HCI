@@ -12,6 +12,7 @@
   <div id="test2" v-show="showtest2"><!-- 在node25会显示，node26会隐藏 -->
     <el-button  @click="handle" type="primary" class="drawerButton" >
       太和殿内
+      
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
