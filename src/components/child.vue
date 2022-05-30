@@ -1,13 +1,19 @@
 <template>
-  <el-drawer title="我是Drawer" :visible="childVisible_" size="50%" @close="handleClose">
+  <el-drawer title="太和殿" :visible="childVisible_" size="50%" @close="handleClose">
     <p>
-      太和殿，又称“金銮殿、至尊金殿，金銮宝殿”,位于北京市东城区景山前街4号故宫博物院内
+      太和殿，又称“金銮殿、至尊金殿，金銮宝殿”,
+      位于北京市东城区景山前街4号故宫博物院内
       矗立在紫禁城中央,建筑面积2377平方米
-      是紫禁城（故宫）中最大的殿宇、东方三大殿之一 。京城的中轴子午线沿着龙纹石雕御路升上三台,
-      从天子宝座下穿过，是中国现存规制最高的古代宫殿建筑，是皇帝举行重大朝典之地。
-      大殿内外饰以成千上万条金龙纹，屋脊角安设十个脊兽，在现存古建筑中仅此一例。
-      明永乐十八年1420年太和殿建成,初名奉天殿,后经数次灾毁和重建；
-      明嘉靖朝改名皇极殿；满清建都北京后改为今名；现太和殿是清康熙年重建并留存下来的。
+      是紫禁城（故宫）中最大的殿宇、东方三大殿之一 。
+      京城的中轴子午线沿着龙纹石雕御路升上三台,
+      从天子宝座下穿过，是中国现存规制最高的古代宫殿建筑，
+      是皇帝举行重大朝典之地。
+      大殿内外饰以成千上万条金龙纹，屋脊角安设十个脊兽，
+      在现存古建筑中仅此一例。
+      明永乐十八年1420年太和殿建成,初名奉天殿,
+      后经数次灾毁和重建；
+      明嘉靖朝改名皇极殿；满清建都北京后改为今名；
+      现太和殿是清康熙年重建并留存下来的。
       </p>
   </el-drawer>
 </template>
@@ -39,12 +45,25 @@ export default {
         this.$emit('changeDrawer', v)
       },
     },
+    /*innerVisible:{
+        get(){
+          console.log(this.innerVisible, 'innerVisible')
+        return this.innerVisible
+        },
+        set(v){
+          console.log(v, 'v')
+        this.$emit('changeDrawer', v)
+        }
+      }*/
   },
   methods: {
     //关闭当前抽屉；触发set方法（childVisible_值改变就会调用set）
     handleClose() {
       this.childVisible_ = false
     },
+    /*handleClose2() {
+      this.innerVisible = false
+    },*/
   },
 }
 </script>

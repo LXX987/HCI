@@ -1,22 +1,74 @@
 <template>
 <div>
   <div id="viewer"></div>
-  <div id="test" v-show="showtest"><!-- 在node25会显示，node26会隐藏 -->
-    <el-button  @click="handle" type="primary" class="drawerButton" >
-      太和殿
+  <div id="taihe" v-show="showTaihe"><!-- 在node25会显示，node26会隐藏 -->
+    <el-button  @click="handleTaihe" type="primary" class="drawerButton" >
+      太和门
     </el-button>
-    <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+    <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/>
+    
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
     <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
   </div>
   <div id="test2" v-show="showtest2"><!-- 在node25会显示，node26会隐藏 -->
     <el-button  @click="handle" type="primary" class="drawerButton" >
-      太和殿内
+      太和殿
       
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
     <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
+  </div>
+  <div id="zhonghedian" v-show="showZhonghe" >
+  <el-button type="primary" class="drawerButton" @click="handleZhonghe">
+      中和殿
+  </el-button>
+   <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/> 
+
+  </div>
+  <div id="baohedian" v-show="showBaohe" >
+  <el-button type="primary" class="drawerButton" @click="handleBaohe">
+    保和殿
+ </el-button>
+  <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe"/><!--调用保和殿子组件-->
+  </div>
+  <div id="qianqingmen" v-show="showQianqingmen" >
+  <el-button type="primary" class="drawerButton" @click="handleQianqingmen">
+    乾清门
+</el-button>
+<qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
+<!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
+  </div>
+  <div id="qianqinggong" v-show="showQianqinggong" >
+  <el-button type="primary" class="drawerButton" @click="handleQianqinggong">
+    乾清宫
+</el-button>
+<qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
+  </div>
+  
+  <div id="jiaotai" v-show="showJiaotai" >
+  <el-button type="primary" class="drawerButton" @click="handleJiaotai">
+    交泰殿
+</el-button>
+<jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai"/>
+  </div>
+<div id="kunninggong" v-show="showKunninggong" >
+  <el-button type="primary" class="drawerButton" @click="handleKunninggong">
+    坤宁宫
+</el-button>
+<kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong"/>
+  </div>
+  <div id="kunningmen" v-show="showKunningmen" >
+  <el-button type="primary" class="drawerButton" @click="handleKunningmen">
+    坤宁门
+</el-button>
+<kunningmen :kunningmenVisible="kunningmenVisible" @changeDrawer="changeKunningmen"/>
+  </div>
+  <div id="huayuan" v-show="showHuayuan" >
+  <el-button type="primary" class="drawerButton" @click="handleHuayuan">
+    御花园
+</el-button>
+<huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
   </div>
   
   <!-- <div id="test" v-show="showtest">
@@ -52,17 +104,54 @@ import "photo-sphere-viewer/dist/photo-sphere-viewer.css";
 import "photo-sphere-viewer/dist/plugins/markers.css"; //Markers插件
 import Test from './test.vue';
 import Child from './child.vue';
+import zhonghedian from'./zhonghedian.vue';
+import baohedian from'./baohedian.vue';
+import qianqingmen from'./qianqingmen.vue';
+import qianqinggong from'./qianqinggong.vue';
+import jiaotai from'./jiaotai.vue';
+import kunninggong from'./kunninggong.vue';
+import kunningmen from'./kunningmen.vue';
+import huayuan from'./huayuan.vue';
+import taihe from'./taihe.vue';
 export default {
   name:'view3D',
     components:{ 
         Test,
         Child,
+        zhonghedian,
+        baohedian,
+        qianqingmen,
+        qianqinggong,
+        jiaotai,
+        kunninggong,
+        kunningmen,
+        huayuan,
+        taihe,
+        
     },
   data() {
     return {
       childVisible: false, //是否展示抽屉
+      zhongheVisible:false,//是否展示抽屉
+      baoheVisible:false,
+      qianqingmenVisible:false,
+      qianqinggongVisible:false,
+      jiaotaiVisible: false,
+      kunninggongVisible:false,
+      kunningmenVisible:false,
+      huayuanVisible:false,
+      taiheVisible:false,
       showtest: 0,
       showtest2:0,
+      showZhonghe:0,
+      showBaohe:0,
+      showQianqingmen:0,
+      showQianqinggong:0,
+      showJiaotai:0,
+      showKunninggong:0,
+      showKunningmen:0,
+      showHuayuan:0,
+      showTaihe:0,
       viewer: "",
       imgurl1: require("@/assets/pic/node1.jpg"),
       imgurl2: require("@/assets/pic/node2.jpg"),
@@ -141,11 +230,77 @@ export default {
     changeDrawer(v) {
       this.childVisible = v
     },
-         handle() {
+     handle() {
       this.childVisible = true
     },
+    handleZhonghe(){
+      this.zhongheVisible =true
 
-    
+    },
+    changeZhonghe(z){
+      this.zhongheVisible =z
+
+    },
+    handleTaihe(){//太和门介绍
+      this.taiheVisible =true
+
+    },
+    changeTaihe(z){
+      this.taiheVisible =z
+
+    },
+    handleKunningmen(){//坤宁门介绍
+      this.kunningmenVisible =true
+
+    },
+    changeKunningmen(z){
+      this.kunningmenVisible =z
+
+    },
+     handleHuayuan(){//御花园介绍
+      this.huayuanVisible =true
+
+    },
+    changeHuayuan(z){
+      this.huayuanVisible =z
+
+    },
+    handleKunninggong(){//坤宁宫介绍
+      this.kunninggongVisible =true
+
+    },
+    changeKunninggong(z){
+      this.kunninggongVisible =z
+
+    },
+    handleJiaotai(){//交泰殿介绍
+      this.jiaotaiVisible =true
+
+    },
+    changeJiaotai(z){
+      this.jiaotaiVisible =z
+
+    },
+    handleQianqinggong(){//乾清宫介绍
+      this.qianqinggongVisible =true
+
+    },
+    changeQianqinggong(z){
+      this.qianqinggongVisible =z
+
+    },
+    handleQianqingmen(){//乾清门介绍
+      this.qianqingmenVisible=true
+    },
+    changeQianqingmen(z){
+      this.qianqingmenVisible=z
+    },
+    handleBaohe(){//保和殿介绍
+      this.baoheVisible=true
+    },
+    changeBaohe(b){
+      this.baoheVisible=b
+    },
   },
   mounted() {
     // this.demo();
@@ -648,7 +803,7 @@ export default {
             this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
                 this.showtest2 = 0;
-                this.showtest = 1;
+                this.showTaihe = 1;
                 markersPlugin.hideMarker("circle65");
                 markersPlugin.showMarker("circle64");//显示你需要显示的marker
                 
@@ -660,8 +815,16 @@ export default {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                this.showtest2 = 1;
-                this.showtest = 0;
+                this.showBaohe=0;
+                this.showZhonghe=0;
+                this.showtest2 = 0;
+                this.showTaihe = 1;
+                this.showQianqingmen=0;
+                this.showQianqinggong=0;
+                this.showJiaotai=0;
+                this.showKunninggong=0;
+                this.showKunningmen=0;
+                this.showHuayuan=0;
                 markersPlugin.showMarker("circle65");//显示你需要显示的marker
                 markersPlugin.showMarker("circle63");
                 // 
@@ -675,7 +838,7 @@ export default {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.showMarker("circle65");//显示你需要显示的marker
                 markersPlugin.showMarker("circle63");
-                this.showtest = 1
+                this.showTaihe = 1
               }
             );
           }
@@ -711,6 +874,8 @@ export default {
           if (markerid == "circle68") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              this.showtest2=0;
+              this.showtest=0;
               // this.viewer.setPanorama(this.imgurl25).then(() => {
                 // markersPlugin.showMarker("circle68");//显示你需要显示的marker
                 // markersPlugin.hideMarker("circle64");
@@ -721,6 +886,8 @@ export default {
           if (markerid == "circle68(1)") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              this.showtest2=0;
+              this.showtest=0;
               // this.viewer.setPanorama(this.imgurl25).then(() => {
                 // markersPlugin.showMarker("circle68");//显示你需要显示的marker
                 // markersPlugin.hideMarker("circle64");
@@ -758,10 +925,10 @@ export default {
           if (markerid == "circle25") {
             this.viewer.setPanorama(this.imgurl26,{ longitude: 18.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle26"));
-            this.showtest = 1;
+            this.showTaihe = 1;
           }
           if (markerid == "circle26") {
-            this.showtest = 1;
+            this.showTaihe = 1;
             this.viewer.setPanorama(this.imgurl27,{ longitude: 14.432589417434965, latitude: 0.07016253709436304 }, true)
             .then(() => markersPlugin.showMarker("circle27"));
           }
@@ -775,13 +942,13 @@ export default {
             .then(() => markersPlugin.showMarker("circle30"));
           }
           if (markerid == "circle30") {
-            this.showtest = 1;
+            this.showTaihe = 1;
             console.log("show");
             this.viewer.setPanorama(this.imgurl36)
             .then(() => markersPlugin.showMarker("circle36"));
           }
           if (markerid == "circle36") {
-            this.showtest = 0;
+            this.showTaihe = 0;
             this.viewer.setPanorama(this.imgurl37)
             .then(() => markersPlugin.showMarker("circle37"));
           }
