@@ -6,6 +6,10 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueI18n  from 'vue-i18n' //导入包
+import 'default-passive-events'
+import VueDragscroll from 'vue-dragscroll'
+Vue.use(VueDragscroll);
+
 
 Vue.use(VueI18n);      //使用use挂载
 const i18n=new VueI18n({    //通过new出一个i18n的实例

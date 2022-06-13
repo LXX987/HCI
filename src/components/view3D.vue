@@ -2,71 +2,71 @@
 <div>
   <div id="viewer"></div>
   <div id="taihe" v-show="showTaihe"><!-- 在node25会显示，node26会隐藏 -->
-    <el-button  @click="handleTaihe" type="primary" class="drawerButton" >
-      太和门
+    <!-- <el-button  @click="handleTaihe" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" >
+    </el-button> -->
+    <el-button  @click="handle" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" > 
     </el-button>
-    
-    <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/>
+    <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+    <!-- <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/> -->
     
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
     <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
   </div>
   <div id="test2" v-show="showtest2"><!-- 在node25会显示，node26会隐藏 -->
-    <el-button  @click="handle" type="primary" class="drawerButton" >
-      太和殿
-      
+    <el-button  @click="handle" type="primary" id="drawerButtonTAIHEMENG" class="drawerButton" > 
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+    <!-- <TAIHEDIAN style="z-index:999"></TAIHEDIAN> -->
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
     <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
   </div>
   <div id="zhonghedian" v-show="showZhonghe" >
-  <el-button type="primary" class="drawerButton" @click="handleZhonghe">
+  <el-button type="primary" class="drawerButton" id="drawerButtonZHONGHEDIAN" @click="handleZhonghe">
       中和殿
   </el-button>
    <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/> 
 
   </div>
   <div id="baohedian" v-show="showBaohe" >
-  <el-button type="primary" class="drawerButton" @click="handleBaohe">
+  <el-button type="primary" class="drawerButton" id="drawerButtonBAOHEDIAN" @click="handleBaohe">
     保和殿
  </el-button>
   <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe"/><!--调用保和殿子组件-->
   </div>
   <div id="qianqingmen" v-show="showQianqingmen" >
-  <el-button type="primary" class="drawerButton" @click="handleQianqingmen">
+  <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
     乾清门
 </el-button>
 <qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
 <!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
   </div>
   <div id="qianqinggong" v-show="showQianqinggong" >
-  <el-button type="primary" class="drawerButton" @click="handleQianqinggong">
+  <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
     乾清宫
 </el-button>
 <qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
   </div>
   
   <div id="jiaotai" v-show="showJiaotai" >
-  <el-button type="primary" class="drawerButton" @click="handleJiaotai">
+  <el-button type="primary" class="drawerButton" id="drawerButtonJIAOTAIDIAN" @click="handleJiaotai">
     交泰殿
 </el-button>
 <jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai"/>
   </div>
 <div id="kunninggong" v-show="showKunninggong" >
-  <el-button type="primary" class="drawerButton" @click="handleKunninggong">
+  <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGGONG" @click="handleKunninggong">
     坤宁宫
 </el-button>
 <kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong"/>
   </div>
   <div id="kunningmen" v-show="showKunningmen" >
-  <el-button type="primary" class="drawerButton" @click="handleKunningmen">
+  <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGMENG" @click="handleKunningmen">
     坤宁门
 </el-button>
 <kunningmen :kunningmenVisible="kunningmenVisible" @changeDrawer="changeKunningmen"/>
   </div>
   <div id="huayuan" v-show="showHuayuan" >
-  <el-button type="primary" class="drawerButton" @click="handleHuayuan">
+  <el-button type="primary" class="drawerButton" id="drawerButtonYUHUAYUAN" @click="handleHuayuan">
     御花园
 </el-button>
 <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
@@ -78,11 +78,57 @@
 </div>
 </template>
 <style scoped>
+.el-button--primary {
+    border-color: #fbfbfb00;
+}
+#drawerButtonYUHUAYUAN {
+  background: url("../assets/YUHUAYUAN.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonKUNNINGMENG {
+  background: url("../assets/KUNNINGMENG.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonKUNNINGGONG {
+  background: url("../assets/KUNNINGGONG.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonJIAOTAIDIAN {
+  background: url("../assets/JIAOTAIDIAN.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonQIANQINGONG {
+  background: url("../assets/QIANQINGONG.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonQIANQINMENG {
+  background: url("../assets/QIANQINMENG.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonBAOHEDIAN {
+  background: url("../assets/BAOHEDIAN.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonZHONGHEDIAN {
+  background: url("../assets/ZHONGHEDIAN.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonTAIHEDIAN {
+  background: url("../assets/TAIHEDIANintro.png") no-repeat;
+  background-size: 100% 100%;
+}
+#drawerButtonTAIHEMENG {
+  background: url("../assets/TAIHEMENGintro.png") no-repeat;
+  background-size: 100% 100%;
+}
 .drawerButton {
   position: absolute;
-  left: 200px;
-  height: 200px;
-  top: 100px;
+  /* left: 1255px; */
+  height: 103px;
+  width: 145px;
+  /* top: 530px; */
+  right: 0px;
+  bottom: 10px;
   z-index: 999;
 }
 #test {
@@ -114,6 +160,7 @@ import kunninggong from'./kunninggong.vue';
 import kunningmen from'./kunningmen.vue';
 import huayuan from'./huayuan.vue';
 import taihe from'./taihe.vue';
+import TAIHEDIAN from './TAIHEDIAN.vue'
 export default {
   name:'view3D',
     components:{ 
@@ -128,7 +175,7 @@ export default {
         kunningmen,
         huayuan,
         taihe,
-        
+        TAIHEDIAN
     },
   data() {
     return {

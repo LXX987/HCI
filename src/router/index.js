@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import view3D from '@/components/view3D'
 import ShowModel from '@/components/ShowModel'
 import gifvedio from '@/components/gifvedio'
+import TAIHEDIAN from '@/components/TAIHEDIAN'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/',
       name: 'gifvedio',
       component: gifvedio
+    },
+    {
+      path: '/TAIHEDIAN',
+      name: 'TAIHEDIAN',
+      component: TAIHEDIAN
     }
   ]
 })
