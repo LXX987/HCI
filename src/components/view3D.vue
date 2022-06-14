@@ -1,126 +1,204 @@
 <template>
-<div>
-  <div id="viewer"></div>
-  <div id="taihe" v-show="showTaihe"><!-- 在node25会显示，node26会隐藏 -->
-    <!-- <el-button  @click="handleTaihe" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" >
+  <div>
+    <div id="viewer"></div>
+    <div id="taihe" v-show="showTaihe">
+      <!-- 在node25会显示，node26会隐藏 -->
+      <!-- <el-button  @click="handleTaihe" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" >
     </el-button> -->
-    <el-button  @click="handle" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" > 
-    </el-button>
-    <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
-    <!-- <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/> -->
-    
-    <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
-    <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
-  </div>
-  <div id="test2" v-show="showtest2"><!-- 在node25会显示，node26会隐藏 -->
-    <el-button  @click="handle" type="primary" id="drawerButtonTAIHEMENG" class="drawerButton" > 
-    </el-button>
-    <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
-    <!-- <TAIHEDIAN style="z-index:999"></TAIHEDIAN> -->
-    <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
-    <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
-  </div>
-  <div id="zhonghedian" v-show="showZhonghe" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonZHONGHEDIAN" @click="handleZhonghe">
-      中和殿
-  </el-button>
-   <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/> 
+      <el-button @click="handle" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton">
+      </el-button>
 
-  </div>
-  <div id="baohedian" v-show="showBaohe" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonBAOHEDIAN" @click="handleBaohe">
-    保和殿
- </el-button>
-  <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe"/><!--调用保和殿子组件-->
-  </div>
-  <div id="qianqingmen" v-show="showQianqingmen" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
-    乾清门
-</el-button>
-<qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
-<!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
-  </div>
-  <div id="qianqinggong" v-show="showQianqinggong" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
-    乾清宫
-</el-button>
-<qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
-  </div>
-  
-  <div id="jiaotai" v-show="showJiaotai" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonJIAOTAIDIAN" @click="handleJiaotai">
-    交泰殿
-</el-button>
-<jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai"/>
-  </div>
-<div id="kunninggong" v-show="showKunninggong" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGGONG" @click="handleKunninggong">
-    坤宁宫
-</el-button>
-<kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong"/>
-  </div>
-  <div id="kunningmen" v-show="showKunningmen" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGMENG" @click="handleKunningmen">
-    坤宁门
-</el-button>
-<kunningmen :kunningmenVisible="kunningmenVisible" @changeDrawer="changeKunningmen"/>
-  </div>
-  <div id="huayuan" v-show="showHuayuan" >
-  <el-button type="primary" class="drawerButton" id="drawerButtonYUHUAYUAN" @click="handleHuayuan">
-    御花园
-</el-button>
-<huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
-  </div>
-  
-  <!-- <div id="test" v-show="showtest">
+      <el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/太和殿.mp3" hidden></audio>
+
+
+
+      <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+      <!-- <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/> -->
+
+      <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
+      <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
+    </div>
+    <div id="test2" v-show="showtest2">
+      <!-- 在node25会显示，node26会隐藏 -->
+      <el-button @click="handle" type="primary" id="drawerButtonTAIHEMENG" class="drawerButton"> </el-button>
+      <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+      <!-- <TAIHEDIAN style="z-index:999"></TAIHEDIAN> -->
+      <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
+      <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
+    </div>
+    <div id="zhonghedian" v-show="showZhonghe">
+      <el-button type="primary" class="drawerButton" id="drawerButtonZHONGHEDIAN" @click="handleZhonghe">
+        中和殿
+      </el-button>
+      <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/中和殿.mp3" hidden></audio>
+      <zhonghedian :zhongheVisible="zhongheVisible" @changeDrawer="changeZhonghe" />
+    </div>
+    <div id="baohedian" v-show="showBaohe">
+      <el-button type="primary" class="drawerButton" id="drawerButtonBAOHEDIAN" @click="handleBaohe">
+        保和殿
+      </el-button>
+      <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe" />
+      <!--调用保和殿子组件-->
+      <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/保和殿.mp3" hidden></audio>
+    </div>
+    <div id="qianqingmen" v-show="showQianqingmen">
+      <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
+        乾清门
+      </el-button>
+      <qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
+      <!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
+    </div>
+    <div id="qianqinggong" v-show="showQianqinggong">
+      <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
+        乾清宫
+      </el-button>
+      <qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong" />
+      <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/乾清宫.mp3" hidden></audio>
+    </div>
+
+    <div id="jiaotai" v-show="showJiaotai">
+      <el-button type="primary" class="drawerButton" id="drawerButtonJIAOTAIDIAN" @click="handleJiaotai">
+        交泰殿
+      </el-button>
+      <jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai" />
+      <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/交泰殿.mp3" hidden></audio>
+    </div>
+    <div id="kunninggong" v-show="showKunninggong">
+      <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGGONG" @click="handleKunninggong">
+        坤宁宫
+      </el-button>
+      <kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong" />
+    </div>
+    <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+      <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+    </el-tooltip>
+    <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+      <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+    </el-tooltip>
+    <audio id="audio" src="../../static/语音资料/坤宁宫.mp3" hidden></audio>
+    <div id="kunningmen" v-show="showKunningmen">
+      <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGMENG" @click="handleKunningmen">
+        坤宁门
+      </el-button>
+      <kunningmen :kunningmenVisible="kunningmenVisible" @changeDrawer="changeKunningmen" />
+    </div>
+    <div id="huayuan" v-show="showHuayuan">
+      <el-button type="primary" class="drawerButton" id="drawerButtonYUHUAYUAN" @click="handleHuayuan">
+        御花园
+      </el-button>
+      <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan" />
+      <el-tooltip class="item" effect="dark" content=" 播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/御花园.mp3" hidden></audio>
+    </div>
+
+    <!-- <div id="test" v-show="showtest">
     <Test></Test>这种是引入组件的方式，引入test组件，然后在node25会显示，node26会自动隐藏
   </div> -->
-</div>
+  </div>
 </template>
 <style scoped>
 .el-button--primary {
-    border-color: #fbfbfb00;
+  border-color: #fbfbfb00;
 }
+
 #drawerButtonYUHUAYUAN {
   background: url("../assets/YUHUAYUAN.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonKUNNINGMENG {
   background: url("../assets/KUNNINGMENG.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonKUNNINGGONG {
   background: url("../assets/KUNNINGGONG.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonJIAOTAIDIAN {
   background: url("../assets/JIAOTAIDIAN.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonQIANQINGONG {
   background: url("../assets/QIANQINGONG.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonQIANQINMENG {
   background: url("../assets/QIANQINMENG.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonBAOHEDIAN {
   background: url("../assets/BAOHEDIAN.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonZHONGHEDIAN {
   background: url("../assets/ZHONGHEDIAN.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonTAIHEDIAN {
   background: url("../assets/TAIHEDIANintro.png") no-repeat;
   background-size: 100% 100%;
 }
+
 #drawerButtonTAIHEMENG {
   background: url("../assets/TAIHEMENGintro.png") no-repeat;
   background-size: 100% 100%;
 }
+
+#startMusic {
+  background: url("../assets/music.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#stopMusic {
+  background: url("../assets/music.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+
+
+
 .drawerButton {
   position: absolute;
   /* left: 1255px; */
@@ -131,75 +209,96 @@
   bottom: 10px;
   z-index: 999;
 }
-#test {
-    position: absolute;
-    left: 200px;
-    height: 200px;
-    top: 100px;
+
+.startMusicButton {
+  position: absolute;
+  height: auto;
+  width: auto;
+  right: 230px;
+  bottom: 50px;
+  z-index: 999;
 }
+
+.stopMusicButton {
+  position: absolute;
+  height: auto;
+  width: auto;
+  right: 140px;
+  bottom: 50px;
+  z-index: 999;
+}
+
+
+#test {
+  position: absolute;
+  left: 200px;
+  height: 200px;
+  top: 100px;
+}
+
 #test2 {
-    position: absolute;
-    left: 200px;
-    height: 200px;
-    top: 100px;
+  position: absolute;
+  left: 200px;
+  height: 200px;
+  top: 100px;
 }
 </style>
 <script>
-import {Viewer} from "photo-sphere-viewer";
-import {MarkersPlugin} from "photo-sphere-viewer/dist/plugins/markers"; //Markers插件
+import { Viewer } from "photo-sphere-viewer";
+import { MarkersPlugin } from "photo-sphere-viewer/dist/plugins/markers"; //Markers插件
 import "photo-sphere-viewer/dist/photo-sphere-viewer.css";
 import "photo-sphere-viewer/dist/plugins/markers.css"; //Markers插件
 import Test from './test.vue';
 import Child from './child.vue';
-import zhonghedian from'./zhonghedian.vue';
-import baohedian from'./baohedian.vue';
-import qianqingmen from'./qianqingmen.vue';
-import qianqinggong from'./qianqinggong.vue';
-import jiaotai from'./jiaotai.vue';
-import kunninggong from'./kunninggong.vue';
-import kunningmen from'./kunningmen.vue';
-import huayuan from'./huayuan.vue';
-import taihe from'./taihe.vue';
+import zhonghedian from './zhonghedian.vue';
+import baohedian from './baohedian.vue';
+import qianqingmen from './qianqingmen.vue';
+import qianqinggong from './qianqinggong.vue';
+import jiaotai from './jiaotai.vue';
+import kunninggong from './kunninggong.vue';
+import kunningmen from './kunningmen.vue';
+import huayuan from './huayuan.vue';
+import taihe from './taihe.vue';
 import TAIHEDIAN from './TAIHEDIAN.vue'
 export default {
-  name:'view3D',
-    components:{ 
-        Test,
-        Child,
-        zhonghedian,
-        baohedian,
-        qianqingmen,
-        qianqinggong,
-        jiaotai,
-        kunninggong,
-        kunningmen,
-        huayuan,
-        taihe,
-        TAIHEDIAN
-    },
+  name: 'view3D',
+  components: {
+    Test,
+    Child,
+    zhonghedian,
+    baohedian,
+    qianqingmen,
+    qianqinggong,
+    jiaotai,
+    kunninggong,
+    kunningmen,
+    huayuan,
+    taihe,
+    TAIHEDIAN
+  },
   data() {
     return {
       childVisible: false, //是否展示抽屉
-      zhongheVisible:false,//是否展示抽屉
-      baoheVisible:false,
-      qianqingmenVisible:false,
-      qianqinggongVisible:false,
+      zhongheVisible: false,//是否展示抽屉
+      baoheVisible: false,
+      qianqingmenVisible: false,
+      qianqinggongVisible: false,
       jiaotaiVisible: false,
-      kunninggongVisible:false,
-      kunningmenVisible:false,
-      huayuanVisible:false,
-      taiheVisible:false,
+      kunninggongVisible: false,
+      kunningmenVisible: false,
+      huayuanVisible: false,
+      taiheVisible: false,
       showtest: 0,
-      showtest2:0,
-      showZhonghe:0,
-      showBaohe:0,
-      showQianqingmen:0,
-      showQianqinggong:0,
-      showJiaotai:0,
-      showKunninggong:0,
-      showKunningmen:0,
-      showHuayuan:0,
-      showTaihe:0,
+      showtest2: 0,
+      showZhonghe: 0,
+      showBaohe: 0,
+      showQianqingmen: 0,
+      showQianqinggong: 0,
+      showJiaotai: 0,
+      showKunninggong: 0,
+      showKunningmen: 0,
+      showHuayuan: 0,
+      showTaihe: 0,
       viewer: "",
       imgurl1: require("@/assets/pic/node1.jpg"),
       imgurl2: require("@/assets/pic/node2.jpg"),
@@ -268,86 +367,92 @@ export default {
       imgurl65: require("@/assets/pic/node65.jpg"),
       imgurl66: require("@/assets/pic/node66.jpg"),
       imgurl67: require("@/assets/pic/node67.jpg"),
-      imgurl68: require("@/assets/pic/node68.jpg"),  
-      imgurl69: require("@/assets/pic/node69.jpg"),  
-      imgurl70: require("@/assets/pic/node70.jpg"),  
-      imgurl71: require("@/assets/pic/node71.jpg"),    
+      imgurl68: require("@/assets/pic/node68.jpg"),
+      imgurl69: require("@/assets/pic/node69.jpg"),
+      imgurl70: require("@/assets/pic/node70.jpg"),
+      imgurl71: require("@/assets/pic/node71.jpg"),
     };
   },
   methods: {
     changeDrawer(v) {
       this.childVisible = v
     },
-     handle() {
+    handle() {
       this.childVisible = true
     },
-    handleZhonghe(){
-      this.zhongheVisible =true
+    handleZhonghe() {
+      this.zhongheVisible = true
 
     },
-    changeZhonghe(z){
-      this.zhongheVisible =z
+    changeZhonghe(z) {
+      this.zhongheVisible = z
 
     },
-    handleTaihe(){//太和门介绍
-      this.taiheVisible =true
+    handleTaihe() {//太和门介绍
+      this.taiheVisible = true
 
     },
-    changeTaihe(z){
-      this.taiheVisible =z
+    changeTaihe(z) {
+      this.taiheVisible = z
 
     },
-    handleKunningmen(){//坤宁门介绍
-      this.kunningmenVisible =true
+    handleKunningmen() {//坤宁门介绍
+      this.kunningmenVisible = true
 
     },
-    changeKunningmen(z){
-      this.kunningmenVisible =z
+    changeKunningmen(z) {
+      this.kunningmenVisible = z
 
     },
-     handleHuayuan(){//御花园介绍
-      this.huayuanVisible =true
+    handleHuayuan() {//御花园介绍
+      this.huayuanVisible = true
 
     },
-    changeHuayuan(z){
-      this.huayuanVisible =z
+    changeHuayuan(z) {
+      this.huayuanVisible = z
 
     },
-    handleKunninggong(){//坤宁宫介绍
-      this.kunninggongVisible =true
+    handleKunninggong() {//坤宁宫介绍
+      this.kunninggongVisible = true
 
     },
-    changeKunninggong(z){
-      this.kunninggongVisible =z
+    changeKunninggong(z) {
+      this.kunninggongVisible = z
 
     },
-    handleJiaotai(){//交泰殿介绍
-      this.jiaotaiVisible =true
+    handleJiaotai() {//交泰殿介绍
+      this.jiaotaiVisible = true
 
     },
-    changeJiaotai(z){
-      this.jiaotaiVisible =z
+    changeJiaotai(z) {
+      this.jiaotaiVisible = z
 
     },
-    handleQianqinggong(){//乾清宫介绍
-      this.qianqinggongVisible =true
+    handleQianqinggong() {//乾清宫介绍
+      this.qianqinggongVisible = true
 
     },
-    changeQianqinggong(z){
-      this.qianqinggongVisible =z
+    changeQianqinggong(z) {
+      this.qianqinggongVisible = z
 
     },
-    handleQianqingmen(){//乾清门介绍
-      this.qianqingmenVisible=true
+    handleQianqingmen() {//乾清门介绍
+      this.qianqingmenVisible = true
     },
-    changeQianqingmen(z){
-      this.qianqingmenVisible=z
+    changeQianqingmen(z) {
+      this.qianqingmenVisible = z
     },
-    handleBaohe(){//保和殿介绍
-      this.baoheVisible=true
+    handleBaohe() {//保和殿介绍
+      this.baoheVisible = true
     },
-    changeBaohe(b){
-      this.baoheVisible=b
+    changeBaohe(b) {
+      this.baoheVisible = b
+    },
+    handlePlay(id) {
+      document.getElementById(id).play()
+    },
+    stopPlay(id) {
+      document.getElementById(id).pause()
     },
   },
   mounted() {
@@ -360,8 +465,8 @@ export default {
         height: "100vh",
       },
       autorotateLat: 0,//
-      autorotateSpeed:0.20943951023931962,//自转速度
-      navbar:[
+      autorotateSpeed: 0.20943951023931962,//自转速度
+      navbar: [
         "fullscreen",
         "autorotate",
         "move",
@@ -785,11 +890,11 @@ export default {
     //   console.log(level);
     // });
     // 启用/禁用自动旋转时触发
-    this.viewer.on('autorotate', (e,enabled) => {
+    this.viewer.on('autorotate', (e, enabled) => {
       // enabled:false没有旋转   true：旋转
       // console.log(enabled);
       // console.log(999);
-      if(!enabled){
+      if (!enabled) {
         setTimeout(() => {
           this.viewer.toggleAutorotate();//开启自动旋转/不旋转 
         }, 5000);
@@ -797,9 +902,9 @@ export default {
     });
     // 当所有当前动画停止时触发
     // this.viewer.on('stop-all', (e) => {
-      // enabled:false没有旋转   true：旋转
-      // console.log(enabled);
-      // alert(1)
+    // enabled:false没有旋转   true：旋转
+    // console.log(enabled);
+    // alert(1)
     // });
     // 当视图经度和/或纬度发生变化时触发。
     this.viewer.on('position-updated', (e, position) => {
@@ -810,9 +915,9 @@ export default {
     markersPlugin.on("select-marker", (e, marker) => {
       console.log(marker.id);
       const markerid = marker.id;
- 
+
       this.viewer
-      // 动画
+        // 动画
         .animate({
           longitude: marker.config.longitude,
           latitude: marker.config.latitude,
@@ -827,7 +932,7 @@ export default {
         //         longitude: -1.8,
         //         latitude: -0.28,
         //       }),
- 
+
         //     this.viewer
         //       .animate({
         //         zoom: 50,
@@ -839,182 +944,182 @@ export default {
         //       )
         //   )
         // );
- 
+
         .then(() => {
           // markersPlugin.clearMarkers()//移除所有markers
           // this.viewer.rotate({x: 1500,y: 600,});//改变摄像机的位置
           markersPlugin.hideMarker(marker.id);//隐藏点击的marker
           // this.viewer.defaultZoomLvl=0
           if (markerid == "circle63") {
-            
+
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl63, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                this.showtest2 = 0;
-                this.showTaihe = 1;
-                markersPlugin.hideMarker("circle65");
-                markersPlugin.showMarker("circle64");//显示你需要显示的marker
-                
-                
-              }
+              this.showtest2 = 0;
+              this.showTaihe = 1;
+              markersPlugin.hideMarker("circle65");
+              markersPlugin.showMarker("circle64");//显示你需要显示的marker
+
+
+            }
             );
           }
           if (markerid == "circle64") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl64, { longitude: 7.8, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                this.showBaohe=0;
-                this.showZhonghe=0;
-                this.showtest2 = 0;
-                this.showTaihe = 1;
-                this.showQianqingmen=0;
-                this.showQianqinggong=0;
-                this.showJiaotai=0;
-                this.showKunninggong=0;
-                this.showKunningmen=0;
-                this.showHuayuan=0;
-                markersPlugin.showMarker("circle65");//显示你需要显示的marker
-                markersPlugin.showMarker("circle63");
-                // 
-                
-              }
+              this.showBaohe = 0;
+              this.showZhonghe = 0;
+              this.showtest2 = 0;
+              this.showTaihe = 1;
+              this.showQianqingmen = 0;
+              this.showQianqinggong = 0;
+              this.showJiaotai = 0;
+              this.showKunninggong = 0;
+              this.showKunningmen = 0;
+              this.showHuayuan = 0;
+              markersPlugin.showMarker("circle65");//显示你需要显示的marker
+              markersPlugin.showMarker("circle63");
+              // 
+
+            }
             );
           }
           if (markerid == "circle64(1)") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl64, { longitude: 7.8, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                markersPlugin.showMarker("circle65");//显示你需要显示的marker
-                markersPlugin.showMarker("circle63");
-                this.showTaihe = 1
-              }
+              markersPlugin.showMarker("circle65");//显示你需要显示的marker
+              markersPlugin.showMarker("circle63");
+              this.showTaihe = 1
+            }
             );
           }
           if (markerid == "circle65") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl65,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl65, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
-                markersPlugin.hideMarker("circle63");
-              }
+              markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
+              markersPlugin.hideMarker("circle63");
+            }
             );
           }
           if (markerid == "circle66") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl66,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl66, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                markersPlugin.showMarker("circle68(1)");//显示你需要显示的marker
-                markersPlugin.hideMarker("circle64");
-                markersPlugin.hideMarker("circle67");
-              }
+              markersPlugin.showMarker("circle68(1)");//显示你需要显示的marker
+              markersPlugin.hideMarker("circle64");
+              markersPlugin.hideMarker("circle67");
+            }
             );
           }
           if (markerid == "circle67") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl67,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl67, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                markersPlugin.hideMarker("circle64");
-                markersPlugin.hideMarker("circle66");
-              }
+              markersPlugin.showMarker("circle68");//显示你需要显示的marker
+              markersPlugin.hideMarker("circle64");
+              markersPlugin.hideMarker("circle66");
+            }
             );
           }
           if (markerid == "circle68") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              this.showtest2=0;
-              this.showtest=0;
+            this.viewer.setPanorama(this.imgurl68, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              this.showtest2 = 0;
+              this.showtest = 0;
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
-              }
+              // markersPlugin.showMarker("circle68");//显示你需要显示的marker
+              // markersPlugin.hideMarker("circle64");
+              // markersPlugin.hideMarker("circle66");
+            }
             );
           }
           if (markerid == "circle68(1)") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              this.showtest2=0;
-              this.showtest=0;
+            this.viewer.setPanorama(this.imgurl68, { longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              this.showtest2 = 0;
+              this.showtest = 0;
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
-              }
+              // markersPlugin.showMarker("circle68");//显示你需要显示的marker
+              // markersPlugin.hideMarker("circle64");
+              // markersPlugin.hideMarker("circle66");
+            }
             );
           }
           if (markerid == "circle16") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
-            this.viewer.setPanorama(this.imgurl25,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true).then(() => {
+            this.viewer.setPanorama(this.imgurl25, { longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true).then(() => {
               // this.viewer.setPanorama(this.imgurl25).then(() => {
-                markersPlugin.showMarker("circle25")//显示你需要显示的marker
-              }
+              markersPlugin.showMarker("circle25")//显示你需要显示的marker
+            }
             );
 
-              console.log(this.viewer.defaultZoomLvl)
+            console.log(this.viewer.defaultZoomLvl)
           }
           if (markerid == "circle17") {
             this.viewer
               // .setPanorama(this.imgurl18,{ longitude: 6.113027338614143, latitude:-2.914362084993627e-9 }, true)
-              .setPanorama(this.imgurl18,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
+              .setPanorama(this.imgurl18, { longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
               .then(() => markersPlugin.showMarker("circle18"));
           }
           if (markerid == "circle18") {
             this.viewer
-              .setPanorama(this.imgurl19,{ longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
+              .setPanorama(this.imgurl19, { longitude: 16.432589417434965, latitude: 0.07016253709436304 }, true)
               .then(() => markersPlugin.showMarker("circle19"));
-              
+
           }
           if (markerid == "circle19") {
-            
+
             this.viewer.setPanorama(this.imgurl20)
-            .then(() => markersPlugin.showMarker("circle20"));
+              .then(() => markersPlugin.showMarker("circle20"));
           }
           if (markerid == "circle25") {
-            this.viewer.setPanorama(this.imgurl26,{ longitude: 18.432589417434965, latitude: 0.07016253709436304 }, true)
-            .then(() => markersPlugin.showMarker("circle26"));
+            this.viewer.setPanorama(this.imgurl26, { longitude: 18.432589417434965, latitude: 0.07016253709436304 }, true)
+              .then(() => markersPlugin.showMarker("circle26"));
             this.showTaihe = 1;
           }
           if (markerid == "circle26") {
             this.showTaihe = 1;
-            this.viewer.setPanorama(this.imgurl27,{ longitude: 14.432589417434965, latitude: 0.07016253709436304 }, true)
-            .then(() => markersPlugin.showMarker("circle27"));
+            this.viewer.setPanorama(this.imgurl27, { longitude: 14.432589417434965, latitude: 0.07016253709436304 }, true)
+              .then(() => markersPlugin.showMarker("circle27"));
           }
           if (markerid == "circle27") {
-            this.viewer.setPanorama(this.imgurl29,{ longitude: -16.432589417434965, latitude: 0.07016253709436304 }, true)
-            .then(() => markersPlugin.showMarker("circle29"));
+            this.viewer.setPanorama(this.imgurl29, { longitude: -16.432589417434965, latitude: 0.07016253709436304 }, true)
+              .then(() => markersPlugin.showMarker("circle29"));
             this.showtest = 1
           }
           if (markerid == "circle29") {
-            this.viewer.setPanorama(this.imgurl30,{ longitude: 5.432589417434965, latitude: 0.07016253709436304 }, true)
-            .then(() => markersPlugin.showMarker("circle30"));
+            this.viewer.setPanorama(this.imgurl30, { longitude: 5.432589417434965, latitude: 0.07016253709436304 }, true)
+              .then(() => markersPlugin.showMarker("circle30"));
           }
           if (markerid == "circle30") {
             this.showTaihe = 1;
             console.log("show");
             this.viewer.setPanorama(this.imgurl36)
-            .then(() => markersPlugin.showMarker("circle36"));
+              .then(() => markersPlugin.showMarker("circle36"));
           }
           if (markerid == "circle36") {
             this.showTaihe = 0;
             this.viewer.setPanorama(this.imgurl37)
-            .then(() => markersPlugin.showMarker("circle37"));
+              .then(() => markersPlugin.showMarker("circle37"));
           }
           if (markerid == "circle37") {
             this.viewer.setPanorama(this.imgurl38)
-            .then(() => markersPlugin.showMarker("circle38"));
+              .then(() => markersPlugin.showMarker("circle38"));
           }
           if (markerid == "circle38") {
             this.viewer.setPanorama(this.imgurl39)
-            .then(() => markersPlugin.showMarker("circle39"));
+              .then(() => markersPlugin.showMarker("circle39"));
           }
           if (markerid == "circle39") {
             this.viewer.setPanorama(this.imgurl40)
-            .then(() => markersPlugin.showMarker("circle40"));
+              .then(() => markersPlugin.showMarker("circle40"));
           }
           if (markerid == "circle40") {
             this.viewer.setPanorama(this.imgurl52)
-            .then(() => markersPlugin.showMarker("circle52"));
+              .then(() => markersPlugin.showMarker("circle52"));
           }
           this.viewer.zoom(0)//改变缩放
           // this.viewer.setOption('defaultLong',100);
