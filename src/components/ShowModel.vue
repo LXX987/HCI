@@ -1,27 +1,29 @@
 <template>
   <div>
-    <model-obj src="../../static/model/buffle.obj"></model-obj>
+    <!-- <model-obj
+      :backgroundAlpha="0"
+        @on-load="onLoad" 
+    src="../../static/model/lion/file.obj"
+    mtl="../../static/model/lion/file.mtl"></model-obj> -->
+      <!-- <model-obj
+      :backgroundAlpha="0"
+        @on-load="onLoad" 
+    src="../../static/model/buffle/buffle.obj"
+    mtl="../../static/model/buffle/buffle.mtl"></model-obj> -->
+        <model-obj
+      :backgroundAlpha="0"
+        @on-load="onLoad" 
+    src="../../static/model/shishizi/shishizi.obj"
+    mtl="../../static/model/shishizi/shishizi.mtl"></model-obj>
   </div>
 </template>
 <script>
 import {
   ModelObj,
-  ModelThree,
-  ModelFbx,
-  ModelCollada,
-  ModelStl,
-  ModelPly,
-  ModelGltf
 } from "vue-3d-model";
 export default {
   components: {
     ModelObj,
-    ModelThree,
-    ModelFbx,
-    ModelCollada,
-    ModelStl,
-    ModelPly,
-    ModelGltf
   },
   data() {
     return {};
