@@ -1,10 +1,10 @@
 <template>
-  <el-drawer class="drawer" :visible="qianqingmenVisible_" :with-header="false" size="25%" :show-close="false" @close="handleClose">
+  <el-drawer class="drawer" :visible="zhongheVisible_" :with-header="false" size="25%" :show-close="false" @close="handleClose">
     <div class="intro">
       <el-button class="closeBoard" circle @click="closeBoard"></el-button>
     </div>
     <div class="languageChange">
-      <span>{{$t('m.qianqingmen')}}</span>
+      <span>{{$t('m.zhonghedian')}}</span>
     </div>
 
     <div class="langButton">
@@ -22,8 +22,8 @@
 export default {
   //传值
   props: {
-    //父组件传  qianqingmenVisible值；
-    qianqingmenVisible: {
+    //父组件传  zhongheVisible值；
+    zhongheVisible: {
       type: Boolean,
       default: false, //这里默认为false
     },
@@ -48,31 +48,31 @@ export default {
   mounted(){},
   //计算属性
   computed: {
-    qianqingmenVisible_: {
+    zhongheVisible_: {
       get() {
-        console.log(this.qianqingmenVisible, 'qianqingmenVisible')
-        return this.qianqingmenVisible
+        console.log(this.zhongheVisible, 'zhongheVisible')
+        return this.zhongheVisible
       },
       //值变化的时候会被调用
       set(v) {
-        console.log(z, 'z')
-        this.$emit('changeDrawer', z)
+        console.log(v, 'v')
+        this.$emit('changeDrawer', v)
       },
     },
   },
   methods: {
     closeBoard() {
-      this.qianqingmenVisible_ = false
+      this.zhongheVisible_ = false
     },
-    //关闭当前抽屉；触发set方法（qianqingmenVisible_值改变就会调用set）
+    //关闭当前抽屉；触发set方法（zhongheVisible_值改变就会调用set）
     handleClose() {
-      this.qianqingmenVisible_ = false
+      this.zhongheVisible_ = false
     },
     /** 语言切换 */
     onSubmit() {
 
-      // 切换系统语言
-      this.$i18n.locale = this.langForm.radio
+        // 切换系统语言
+        this.$i18n.locale = this.langForm.radio
 
     },
   },
@@ -90,7 +90,7 @@ export default {
   border: 4px solid #f7dd92;
 }
 .closeBoard {
-  background: url('../assets/close.png') no-repeat;
+  background: url('../../assets/close.png') no-repeat;
   background-size: 100% 100%;
 }
 .langButton{
@@ -101,7 +101,7 @@ export default {
 .intro {
   width: 100%;
   height: 100%;
-  background: url('../assets/QianQingMenIntro.png') no-repeat;
+  background: url('../../assets/ZhongHeDianIntro.png') no-repeat;
   background-size: 100% 100%;
 }
 .drawer {
