@@ -4,7 +4,7 @@
       <el-button class="closeBoard" circle @click="closeBoard"></el-button>
     </div>
     <div class="languageChange">
-      <span>{{$t('m.text')}}</span>
+      <span>{{$t('m.taihedian')}}</span>
     </div>
 
     <div class="langButton">
