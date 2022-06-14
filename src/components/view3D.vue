@@ -5,6 +5,13 @@
     <el-button  @click="handle" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" > 
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
+    <el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/太和殿.mp3" hidden></audio>
     <!-- <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/> -->
     
     <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
@@ -23,6 +30,13 @@
       中和殿
   </el-button>
    <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/> 
+   <el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/中和殿.mp3" hidden></audio>
 
   </div>
   <div id="baohedian" v-show="showBaohe" >
@@ -30,7 +44,15 @@
     保和殿
  </el-button>
   <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe"/><!--调用保和殿子组件-->
+  <el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/宝和殿.mp3" hidden></audio>
   </div>
+
   <div id="qianqingmen" v-show="showQianqingmen" >
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
     乾清门
@@ -42,6 +64,13 @@
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
     乾清宫
 </el-button>
+<el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/乾清宫.mp3" hidden></audio>
 <qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
   </div>
   
@@ -50,12 +79,26 @@
     交泰殿
 </el-button>
 <jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai"/>
+<el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/交泰殿.mp3" hidden></audio>
   </div>
 <div id="kunninggong" v-show="showKunninggong" >
   <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGGONG" @click="handleKunninggong">
     坤宁宫
 </el-button>
 <kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong"/>
+<el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/坤宁宫.mp3" hidden></audio>
   </div>
   <div id="kunningmen" v-show="showKunningmen" >
   <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGMENG" @click="handleKunningmen">
@@ -67,6 +110,13 @@
   <el-button type="primary" class="drawerButton" id="drawerButtonYUHUAYUAN" @click="handleHuayuan">
     御花园
 </el-button>
+<el-tooltip class="item" effect="dark" content="播放" placement="top">
+        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+      </el-tooltip>
+      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      </el-tooltip>
+      <audio id="audio" src="../../static/语音资料/御花园.mp3" hidden></audio>
 <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
   </div>
   <div class="endBox" v-show="showEnd" @click="restart">
@@ -141,6 +191,17 @@
   background: url("../assets/TAIHEMENGintro.png") no-repeat;
   background-size: 100% 100%;
 }
+
+#startMusic {
+  background: url("../assets/music.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+#stopMusic {
+  background: url("../assets/music.png") no-repeat;
+  background-size: 100% 100%;
+}
+
 .drawerButton {
   position: absolute;
   /* left: 1255px; */
@@ -151,6 +212,23 @@
   bottom: 10px;
   z-index: 999;
 }
+.startMusicButton {
+  position: absolute;
+  height: auto;
+  width: auto;
+  right: 230px;
+  bottom: 50px;
+  z-index: 999;
+}
+.stopMusicButton {
+  position: absolute;
+  height: auto;
+  width: auto;
+  right: 140px;
+  bottom: 50px;
+  z-index: 999;
+}
+
 #test {
     position: absolute;
     left: 200px;
@@ -327,6 +405,12 @@ export default {
     },
     changeBaohe(b){
       this.baoheVisible=b
+    },
+     handlePlay(id) {
+      document.getElementById(id).play()
+    },
+    stopPlay(id) {
+      document.getElementById(id).pause()
     },
   },
   mounted() {

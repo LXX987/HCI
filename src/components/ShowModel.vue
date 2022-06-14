@@ -1,6 +1,6 @@
 <template>
   <div>
-    <model-obj src="../../static/model/tree.obj"></model-obj>
+    <model-obj src="../../static/model/buffle.obj"></model-obj>
   </div>
 </template>
 <script>
