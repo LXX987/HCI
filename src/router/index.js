@@ -5,6 +5,7 @@ import view3D from '@/components/view3D'
 import ShowModel from '@/components/ShowModel'
 import gifvedio from '@/components/gifvedio'
 import TAIHEDIAN from '@/components/TAIHEDIAN'
+import supplierAllBack from '@/components/supplierAllBack'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/TAIHEDIAN',
       name: 'TAIHEDIAN',
       component: TAIHEDIAN
+    },
+    {
+      path: '/supplierAllBack',
+      name: 'supplierAllBack',
+      component: supplierAllBack
     }
   ]
 })
