@@ -4,11 +4,17 @@
       <el-button class="closeBoard" circle @click="closeBoard"></el-button>
     </div>
     <div class="languageChange">
-      <span>&ensp;&ensp;&ensp;{{$t('m.text')}}</span>
-      <el-select v-model="curLanguage" placeholder="请选择" @change="Onchange" style="width: 10rem;">
-        <el-option v-for="item in lang" :key="item.value" :label="item.label" :value="item.value">
-        </el-option>
-      </el-select>
+      <span>{{$t('m.taihedian')}}</span>
+    </div>
+
+    <div class="langButton">
+      <el-radio-group v-model="langForm.radio" @change="onSubmit" size="mini" text-color="black" fill="#909399">
+        <el-radio-button
+          v-for="item in lang"
+          :label="item.label"
+          :key="item.label"
+        >{{item.txt}}</el-radio-button>
+      </el-radio-group>
     </div>
   </el-drawer>
 </template>
@@ -24,16 +30,18 @@ export default {
   },
   data() {
     return {
-      curLanguage: 0,
+      langForm: {
+        radio: 'zh-CN'
+      },
       lang: [
         {
-          value: 0,
-          label: '中文'
+          txt: '中文',
+          label: 'zh-CN'
         },
         {
-          value: 1,
-          label: 'English'
-        }
+          txt: '英文',
+          label: 'en-US'
+        },
       ]
     }
   },
@@ -60,15 +68,24 @@ export default {
     handleClose() {
       this.childVisible_ = false
     },
-    Onchange(value){
-      if(value===0){
-        this.lang = "zh-CN";
-        this.$i18n.locale = this.lang;
-      }else{
-        this.lang = "en-US";
-        this.$i18n.locale = this.lang;
+    /** 语言切换 */
+    onSubmit() {
+      let self_current_lang = this.langForm.radio
+      if (self_current_lang) {
+        // 切换系统语言
+        this.$i18n.locale = self_current_lang
+        // 将新语言保存到全局状态管理
+        this.$store.dispatch('update_current_lang', self_current_lang)
+        // 关闭语言询问框
+        this.chooseLangDialogVisible = false
+        // 成功提示
+        if(this.$i18n.locale=='zh-CN')
+          this.$message.success('系统语言切换成功！')
+        else this.$message.success('The system language is successfully switched!')
+      } else {
+        this.$message.warning('没有你想要的语言吗，选一个吧！')
       }
-    }
+    },
   },
 }
 </script>
@@ -86,6 +103,11 @@ export default {
 .closeBoard {
   background: url('../assets/close.png') no-repeat;
   background-size: 100% 100%;
+}
+.langButton{
+  position: absolute;
+  right: 20px;
+  top: 540px;
 }
 .intro {
   width: 100%;

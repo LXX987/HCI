@@ -1,34 +1,51 @@
 <template>
-  <el-drawer title="交泰殿" :visible="jiaotaiVisible_" size="50%" @close="handleClose">
-    <p>
-     中和殿,始建于明永乐十八年1420年,
-     明初称“华盖殿”。嘉靖时遭遇火灾,
-     重修后改称“中极殿”,
-     现天花内构件上仍遗留有明代“中极殿”墨迹。
-     清顺治元年1644年,清皇室入住紫禁城，
-     第二年改中极殿为中和殿。
-     “中和”二字取自
-     《礼记·中庸》：“中也者，天下之本也；
-     和也者，天下之道也”之意。
-     三大殿中唯有这间房子可供皇帝一人静静的思考。
-      </p>
+  <el-drawer class="drawer" :visible="jiaotaiVisible_" :with-header="false" size="25%" :show-close="false" @close="handleClose">
+    <div class="intro">
+      <el-button class="closeBoard" circle @click="closeBoard"></el-button>
+    </div>
+    <div class="languageChange">
+      <span>{{$t('m.jiaotaidian')}}</span>
+    </div>
+
+    <div class="langButton">
+      <el-radio-group v-model="langForm.radio" @change="onSubmit" size="mini" text-color="black" fill="#909399">
+        <el-radio-button
+          v-for="item in lang"
+          :label="item.label"
+          :key="item.label"
+        >{{item.txt}}</el-radio-button>
+      </el-radio-group>
+    </div>
   </el-drawer>
 </template>
-
-
 <script>
 export default {
   //传值
   props: {
-    //父组件传  childVisible值；
+    //父组件传  jiaotaiVisible值；
     jiaotaiVisible: {
       type: Boolean,
       default: false, //这里默认为false
     },
   },
   data() {
-    return {}
+    return {
+      langForm: {
+        radio: 'zh-CN'
+      },
+      lang: [
+        {
+          txt: '中文',
+          label: 'zh-CN'
+        },
+        {
+          txt: '英文',
+          label: 'en-US'
+        },
+      ]
+    }
   },
+  mounted(){},
   //计算属性
   computed: {
     jiaotaiVisible_: {
@@ -37,30 +54,59 @@ export default {
         return this.jiaotaiVisible
       },
       //值变化的时候会被调用
-      set(z) {
+      set(v) {
         console.log(z, 'z')
         this.$emit('changeDrawer', z)
       },
     },
-    /*innerVisible:{
-        get(){
-          console.log(this.innerVisible, 'innerVisible')
-        return this.innerVisible
-        },
-        set(v){
-          console.log(v, 'v')
-        this.$emit('changeDrawer', v)
-        }
-      }*/
   },
   methods: {
-    //关闭当前抽屉；触发set方法（childVisible_值改变就会调用set）
+    closeBoard() {
+      this.jiaotaiVisible_ = false
+    },
+    //关闭当前抽屉；触发set方法（jiaotaiVisible_值改变就会调用set）
     handleClose() {
       this.jiaotaiVisible_ = false
     },
-    /*handleClose2() {
-      this.innerVisible = false
-    },*/
+    /** 语言切换 */
+    onSubmit() {
+
+      // 切换系统语言
+      this.$i18n.locale = this.langForm.radio
+
+    },
   },
 }
 </script>
+<style scoped>
+.languageChange {
+  position: absolute;
+  left: 20px;
+  top: 280px;
+}
+.el-button {
+  margin-left: 323px;
+  margin-top: 0px;
+  border: 4px solid #f7dd92;
+}
+.closeBoard {
+  background: url('../assets/close.png') no-repeat;
+  background-size: 100% 100%;
+}
+.langButton{
+  position: absolute;
+  right: 20px;
+  top: 540px;
+}
+.intro {
+  width: 100%;
+  height: 100%;
+  background: url('../assets/JiaoTaiDianIntro.png') no-repeat;
+  background-size: 100% 100%;
+}
+.drawer {
+  margin: 5% 10% 0% 0%;
+  height: 80%;
+  overflow: hidden;
+}
+</style>

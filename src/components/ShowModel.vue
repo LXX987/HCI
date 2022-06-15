@@ -1,32 +1,29 @@
 <template>
+
 <div class="body">
   <div class="backbutton" @click="back">返回</div>
   <div class="show3Dmodel">
     <div class="model">
-<model-obj style="width:100%;height:100%;" src="../../static/model/buffle.obj"></model-obj>
+<!-- <model-obj style="width:100%;height:100%;" src="../../static/model/buffle.obj"></model-obj> -->
+
+
+        <model-obj
+      :backgroundAlpha="0"
+        @on-load="onLoad" 
+    src="../../static/model/shishizi/shishizi.obj"
+    mtl="../../static/model/shishizi/shishizi.mtl"></model-obj>
+
+
   </div>
-  </div>
-</div>
+</div></div>
 </template>
 <script>
 import {
   ModelObj,
-  ModelThree,
-  ModelFbx,
-  ModelCollada,
-  ModelStl,
-  ModelPly,
-  ModelGltf
 } from "vue-3d-model";
 export default {
   components: {
     ModelObj,
-    ModelThree,
-    ModelFbx,
-    ModelCollada,
-    ModelStl,
-    ModelPly,
-    ModelGltf
   },
   data() {
     return {};
