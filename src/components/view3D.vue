@@ -118,10 +118,10 @@
       </el-tooltip>
       <audio id="audio" src="../../static/语音资料/御花园.mp3" hidden></audio>
 <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
+
   </div>
   <div class="endBox" v-show="showEnd" @click="restart">
   </div>
-  
   <!-- <div id="test" v-show="showtest">
     <Test></Test>这种是引入组件的方式，引入test组件，然后在node25会显示，node26会自动隐藏
   </div> -->
@@ -259,6 +259,8 @@ import kunningmen from'./kunningmen.vue';
 import huayuan from'./huayuan.vue';
 import taihe from'./taihe.vue';
 import TAIHEDIAN from './TAIHEDIAN.vue'
+import CReel from './CReel'
+
 export default {
   name:'view3D',
     components:{ 
@@ -300,6 +302,10 @@ export default {
       showHuayuan:0,
       showTaihe:0,
       viewer: "",
+      imgurl33: require("@/assets/pic/node33.jpg"),
+      imgurl34: require("@/assets/pic/node34.jpg"),
+      imgurl57: require("@/assets/pic/node57.jpg"),
+      imgurl62: require("@/assets/pic/node62.jpg"),
       imgurl63: require("@/assets/pic/node63.jpg"),
       imgurl64: require("@/assets/pic/node64.jpg"),
       imgurl65: require("@/assets/pic/node65.jpg"),
@@ -417,7 +423,7 @@ export default {
     // this.demo();
     this.viewer = new Viewer({
       container: document.querySelector("#viewer"),
-      panorama: this.imgurl63,
+      panorama: this.imgurl33,
       size: {
         width: "100vw",
         height: "100vh",
@@ -433,7 +439,7 @@ export default {
         "caption"
       ], // 下方导航栏
       defaultZoomLvl: 0,//默认缩放
-      defaultLong: 0.00,//经度
+      defaultLong: 3.00,//经度
       defaultLat: 0.0,//维度
       //autorotateDelay:1,//1毫秒后启动自动旋转
       plugins: [
@@ -442,9 +448,49 @@ export default {
           {
             markers: [
               {
+                id: "lion3D",
+                tooltip: "石狮",//太和殿内出去
+                longitude: -3.8, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/06/15/p17eT.png',
+                width: 32,
+                height: 32,
+                // visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle34",
+                tooltip: "circle34",//太和殿内出去
+                longitude: -4.3, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                // visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle57",
+                tooltip: "circle57",//太和殿内出去
+                longitude: -6.3, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
+                id: "circle62",
+                tooltip: "circle62",//太和殿内出去
+                longitude: 6.8, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
                 id: "circle63",
                 tooltip: "circle63",//太和殿内出去
-                longitude: -7.8, //位置
+                longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
@@ -459,6 +505,7 @@ export default {
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
                 height: 32,
+                visible: false, //标记的初始可见性。默认true
               },
               {
                 id: "circle64(1)",
@@ -488,7 +535,7 @@ export default {
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
                 height: 32,
-                // visible: false, //标记的初始可见性。默认true
+                visible: false, //标记的初始可见性。默认true
               },
               {
                 id: "circle67",
@@ -498,7 +545,7 @@ export default {
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
                 width: 32,
                 height: 32,
-                // visible: false, //标记的初始可见性。默认true
+                visible: false, //标记的初始可见性。默认true
               },
               {
                 id: "circle68",
@@ -845,12 +892,32 @@ export default {
           // this.viewer.rotate({x: 1500,y: 600,});//改变摄像机的位置
           markersPlugin.hideMarker(marker.id);//隐藏点击的marker
           // this.viewer.defaultZoomLvl=0
-          if (markerid == "circle63") {
-            
+          if (markerid == "lion3D") {
+              this.$router.push('/ShowModel')
+          }
+          if (markerid == "circle34") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
+            this.viewer.setPanorama(this.imgurl34,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              markersPlugin.showMarker("circle57");
+              markersPlugin.hideMarker("lion3D");
+              this.show3D = 0;
+              }
+            );
+          }
+          if (markerid == "circle57") {
+            this.viewer.setPanorama(this.imgurl57,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              markersPlugin.showMarker("circle62");
+              }
+            );
+          }
+          if (markerid == "circle62") {
+            this.viewer.setPanorama(this.imgurl62,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              markersPlugin.showMarker("circle63");
+              }
+            );
+          }
+          if (markerid == "circle63") {
             this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // this.showtest2 = 0;
                 this.showTaihe = 0;
                 markersPlugin.showMarker("circle66");
                 markersPlugin.showMarker("circle64");//显示你需要显示的marker
@@ -859,9 +926,7 @@ export default {
             );
           }
           if (markerid == "circle64") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
                 this.showBaohe=0;
                 this.showZhonghe=0;
                 this.showtest2 = 0;
@@ -878,9 +943,7 @@ export default {
             );
           }
           if (markerid == "circle64(1)") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.showMarker("circle65");//显示你需要显示的marker
                 markersPlugin.showMarker("circle63");
                 this.showTaihe = 1
@@ -888,18 +951,14 @@ export default {
             );
           }
           if (markerid == "circle65") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl65,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
                 markersPlugin.hideMarker("circle63");
               }
             );
           }
           if (markerid == "circle66") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl66,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.hideMarker("circle64");
                 markersPlugin.hideMarker("circle67");
                 markersPlugin.showMarker("circle68");//显示你需要显示的marker
@@ -907,9 +966,7 @@ export default {
             );
           }
           if (markerid == "circle67") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl67,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
                 markersPlugin.showMarker("circle68");//显示你需要显示的marker
                 markersPlugin.hideMarker("circle64");
                 markersPlugin.hideMarker("circle66");
@@ -917,35 +974,24 @@ export default {
             );
           }
           if (markerid == "circle68") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               this.showtest2=0;
               this.showtest=0;
               markersPlugin.showMarker("circle69");
               markersPlugin.showMarker("circle72");
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle68(1)") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl68,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               this.showtest2=0;
               this.showtest=0;
               markersPlugin.showMarker("circle69");
               markersPlugin.showMarker("circle72");
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle69") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl69,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle70");
               markersPlugin.showMarker("circle68(1)");
@@ -953,21 +999,18 @@ export default {
             );
           }
           if (markerid == "circle70") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl70,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle69");
               }
             );
           }
           if (markerid == "circle71") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl71,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle72");
               }
             );
           }
           if (markerid == "circle72") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl72,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle77");
               markersPlugin.hideMarker("circle69");
@@ -975,28 +1018,24 @@ export default {
             );
           }
           if (markerid == "circle73") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl73,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle74");
               }
             );
           }
           if (markerid == "circle74") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl74,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle75");
               }
             );
           }
           if (markerid == "circle75") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl75,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle76");
               }
             );
           }
           if (markerid == "circle76") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl76,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle81");
               markersPlugin.hideMarker("circle78");
@@ -1004,7 +1043,6 @@ export default {
             );
           }
           if (markerid == "circle77") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl77,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle78");
               markersPlugin.showMarker("circle76");
@@ -1012,7 +1050,6 @@ export default {
             );
           }
           if (markerid == "circle78") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl78,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle79");
               markersPlugin.showMarker("circle77");
@@ -1020,217 +1057,107 @@ export default {
             );
           }
           if (markerid == "circle79") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl79,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle78");
               }
             );
           }
           if (markerid == "circle81") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl81,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle82");
               }
             );
           }
           if (markerid == "circle82") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl82,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle85");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle85") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl85,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle88");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle88") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl88,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle89");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle89") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl89,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle92");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle92") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl92,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle91");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle91") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl91,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle96");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle96") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl96,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle98");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle98") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl98,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle100");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle100") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl100,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle101");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle101") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl101,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle103");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle103") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl103,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle104");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle104") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl104,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle107");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle107") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl107,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle110");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle110") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl110,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle111");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
           if (markerid == "circle111") {
-            // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl111,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               this.showEnd = 1;
-              // markersPlugin.showMarker("circle101");
-              // this.showtest2=0;
-              // this.showtest=0;
-              // this.viewer.setPanorama(this.imgurl25).then(() => {
-                // markersPlugin.showMarker("circle68");//显示你需要显示的marker
-                // markersPlugin.hideMarker("circle64");
-                // markersPlugin.hideMarker("circle66");
               }
             );
           }
-          
-          
           // this.viewer.zoom(0)//改变缩放
           // this.viewer.setOption('defaultLong',100);
           // this.viewer.setOption('defaultLat',100);
@@ -1239,6 +1166,4 @@ export default {
     });
   },
 };
-// setPanorama(新全景图文件的网址) :加载新的全景文件,参数
-// new position is longitude: 6.232589417434965 latitude: 0.07016253709436304
 </script>

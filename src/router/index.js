@@ -6,6 +6,7 @@ import ShowModel from '@/components/ShowModel'
 import gifvedio from '@/components/gifvedio'
 import TAIHEDIAN from '@/components/TAIHEDIAN'
 import supplierAllBack from '@/components/supplierAllBack'
+import CReel from '@/components/CReel'
 
 Vue.use(Router)
 
@@ -19,12 +20,18 @@ export default new Router({
     {
       path: '/view3D',
       name: 'view3D',
-      component: view3D
+      component: view3D,
+      meta:{
+      	keepAlive:true
+      }
     },
     {
       path: '/ShowModel',
       name: 'ShowModel',
-      component: ShowModel
+      component: ShowModel,
+      meta:{
+      	keepAlive:true
+      }
     },
     {
       path: '/',
@@ -40,6 +47,12 @@ export default new Router({
       path: '/supplierAllBack',
       name: 'supplierAllBack',
       component: supplierAllBack
-    }
+    },
+    {
+      path: '/CReel',
+      name: 'CReel',
+      component: CReel
+    },
+
   ]
 })
