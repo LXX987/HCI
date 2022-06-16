@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/Home'
 import view3D from '@/components/view3D'
 import ShowModel from '@/components/ShowModel'
+import tonghe3D from '@/components/tonghe3D'
+import ding3D from '@/components/ding3D'
 import gifvedio from '@/components/gifvedio'
 import TAIHEDIAN from '@/components/TAIHEDIAN'
 import supplierAllBack from '@/components/supplierAllBack'
@@ -29,6 +31,22 @@ export default new Router({
       path: '/ShowModel',
       name: 'ShowModel',
       component: ShowModel,
+      meta:{
+      	keepAlive:true
+      }
+    },
+    {
+      path: '/tonghe3D',
+      name: 'tonghe3D',
+      component: tonghe3D,
+      meta:{
+      	keepAlive:true
+      }
+    },
+    {
+      path: '/ding3D',
+      name: 'ding3D',
+      component: ding3D,
       meta:{
       	keepAlive:true
       }

@@ -13,7 +13,6 @@
     src="../../static/model/shishizi/shishizi.obj"
     mtl="../../static/model/shishizi/shishizi.mtl"></model-obj>
 
-
   </div>
 </div></div>
 </template>

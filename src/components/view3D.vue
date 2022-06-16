@@ -458,6 +458,24 @@ export default {
                 // visible: false, //标记的初始可见性。默认true
               },
               {
+                id:"ding3D",
+                tooltip:"铜鼎",//太和殿出去
+                longitude: -7.2,//精度
+                latitude: 0.00,//位置
+                image: '../assets/dingIcon.png',
+                width:32,
+                height: 32,
+              },
+              {
+                id:"tonghe",
+                tooltip:"铜鹤",//太和殿出去
+                longitude: 0.00,//精度
+                latitude: 0.00,//位置
+                image: '../assets/craneIcon.png',
+                width:32,
+                height: 32,
+              },  
+              {
                 id: "circle34",
                 tooltip: "circle34",//太和殿内出去
                 longitude: -4.3, //位置
@@ -895,6 +913,12 @@ export default {
           if (markerid == "lion3D") {
               this.$router.push('/ShowModel')
           }
+          if(markerid == "ding3D") {
+              this.$router.push('/ding3D')
+          }
+          if(markerid == "tonghe"){
+            this.$router.push('/tonghe3D')
+          }
           if (markerid == "circle34") {
             // setPanorama参数：图片地址、下一个场景的初始经纬度、transition 默认（false）
             this.viewer.setPanorama(this.imgurl34,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
@@ -921,6 +945,8 @@ export default {
                 this.showTaihe = 0;
                 markersPlugin.showMarker("circle66");
                 markersPlugin.showMarker("circle64");//显示你需要显示的marker
+                markersPlugin.showMarker("tonghe3D");
+                markersPlugin.showMarker("ding3D");
                 markersPlugin.hideMarker("circle65");
               }
             );
@@ -939,6 +965,8 @@ export default {
                 this.showHuayuan=0;
                 markersPlugin.showMarker("circle65");//显示你需要显示的marker
                 markersPlugin.showMarker("circle63");   
+                markersPlugin.hideMarker("ding3D");
+                markersPlugin.hideMarker("tonghe3D");
               }
             );
           }
