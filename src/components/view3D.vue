@@ -611,7 +611,7 @@ export default {
               },  
               {
                 id: "circle34",
-                tooltip: "circle34",//太和殿内出去
+                tooltip: "出门",//太和殿内出去
                 longitude: -4.3, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -621,7 +621,7 @@ export default {
               },
               {
                 id: "circle57",
-                tooltip: "circle57",//太和殿内出去
+                tooltip: "进入广场",//太和殿内出去
                 longitude: -6.3, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -631,7 +631,7 @@ export default {
               },
               {
                 id: "circle62",
-                tooltip: "circle62",//太和殿内出去
+                tooltip: "靠近太和殿",//太和殿内出去
                 longitude: 6.8, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -641,7 +641,7 @@ export default {
               },
               {
                 id: "circle63",
-                tooltip: "circle63",//太和殿内出去
+                tooltip: "走上台阶",//太和殿内出去
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -651,7 +651,7 @@ export default {
               },
               {
                 id: "circle64",
-                tooltip: "circle64",//太和殿内
+                tooltip: "进入太和殿",//太和殿内
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -671,7 +671,7 @@ export default {
               },
               {
                 id: "circle65",
-                tooltip: "circle65",//太和殿内前进
+                tooltip: "靠近查看",//太和殿内前进
                 longitude: 7.8, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -681,7 +681,7 @@ export default {
               },
               {
                 id: "circle66",
-                tooltip: "circle66",//
+                tooltip: "离开太和殿",//
                 longitude: -1.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -701,7 +701,7 @@ export default {
               },
               {
                 id: "circle68",
-                tooltip: "circle68",//
+                tooltip: "向中和殿前进",//
                 longitude: 1.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -721,7 +721,7 @@ export default {
               },
               {
                 id: "circle69",
-                tooltip: "circle69",//进入中和殿
+                tooltip: "进入中和殿",//进入中和殿
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -731,7 +731,7 @@ export default {
               },
               {
                 id: "circle70",
-                tooltip: "circle70",//中和殿内前进
+                tooltip: "靠近查看",//中和殿内前进
                 longitude: 0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -751,7 +751,7 @@ export default {
               },
               {
                 id: "circle72",
-                tooltip: "circle72",//
+                tooltip: "离开中和殿",//
                 longitude: 0.60, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -801,7 +801,7 @@ export default {
               },
               {
                 id: "circle77",
-                tooltip: "circle77",//中和殿内前进
+                tooltip: "靠近保和殿",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -811,7 +811,7 @@ export default {
               },
               {
                 id: "circle78",
-                tooltip: "circle78",//中和殿内前进
+                tooltip: "进入保和殿",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -831,7 +831,7 @@ export default {
               },
               {
                 id: "circle81",
-                tooltip: "circle81",//中和殿内前进
+                tooltip: "离开保和殿",//中和殿内前进
                 longitude: -0.2, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -841,7 +841,7 @@ export default {
               },
               {
                 id: "circle82",
-                tooltip: "circle82",//中和殿内前进
+                tooltip: "前往乾清门",//中和殿内前进
                 longitude: -0.4, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -851,7 +851,7 @@ export default {
               },
               {
                 id: "circle85",
-                tooltip: "circle85",//中和殿内前进
+                tooltip: "进入乾清门",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -861,7 +861,7 @@ export default {
               },
               {
                 id: "circle88",
-                tooltip: "circle88",//中和殿内前进
+                tooltip: "靠近乾清宫",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -871,7 +871,7 @@ export default {
               },
               {
                 id: "circle89",
-                tooltip: "circle89",//中和殿内前进
+                tooltip: "到乾清宫侧面",//中和殿内前进
                 longitude: -0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -881,7 +881,7 @@ export default {
               },
               {
                 id: "circle92",
-                tooltip: "circle92",//中和殿内前进
+                tooltip: "穿过乾清宫",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -891,7 +891,7 @@ export default {
               },
               {
                 id: "circle91",
-                tooltip: "circle91",//中和殿内前进
+                tooltip: "靠近交泰殿",//中和殿内前进
                 longitude: 0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -901,7 +901,7 @@ export default {
               },
               {
                 id: "circle96",
-                tooltip: "circle96",//中和殿内前进
+                tooltip: "绕过交泰殿",//中和殿内前进
                 longitude: 0.2, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -911,7 +911,7 @@ export default {
               },
               {
                 id: "circle98",
-                tooltip: "98",//中和殿内前进
+                tooltip: "靠近坤宁宫",//中和殿内前进
                 longitude: -0.6, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -921,7 +921,7 @@ export default {
               },
               {
                 id: "circle100",
-                tooltip: "100",//中和殿内前进
+                tooltip: "绕过坤宁宫",//中和殿内前进
                 longitude: 0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -931,7 +931,7 @@ export default {
               },
               {
                 id: "circle101",
-                tooltip: "circle101",//中和殿内前进
+                tooltip: "前往御花园",//中和殿内前进
                 longitude: 0.95, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -941,7 +941,7 @@ export default {
               },
               {
                 id: "circle103",
-                tooltip: "circle103",//中和殿内前进
+                tooltip: "前往御花园",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -951,7 +951,7 @@ export default {
               },
               {
                 id: "circle104",
-                tooltip: "circle104",//中和殿内前进
+                tooltip: "下台阶",//中和殿内前进
                 longitude: 0.6, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -961,7 +961,7 @@ export default {
               },
               {
                 id: "circle107",
-                tooltip: "circle107",//中和殿内前进
+                tooltip: "到御花园门口",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -971,7 +971,7 @@ export default {
               },
               {
                 id: "circle110",
-                tooltip: "circle110",//中和殿内前进
+                tooltip: "进入御花园",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -981,7 +981,7 @@ export default {
               },
               {
                 id: "circle111",
-                tooltip: "circle111",//中和殿内前进
+                tooltip: "结束参观",//中和殿内前进
                 longitude: 0.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -1077,8 +1077,7 @@ export default {
           if (markerid == "circle63") {
             this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
                 this.showTaihe = 0;
-                markersPlugin.showMarker("circle66");
-                markersPlugin.showMarker("circle64");//显示你需要显示的marker
+                markersPlugin.showMarker("circle64");
                 markersPlugin.showMarker("tonghe3D");
                 markersPlugin.showMarker("ding3D");
                 markersPlugin.hideMarker("circle65");
@@ -1097,8 +1096,7 @@ export default {
                 this.showKunninggong=0;
                 this.showKunningmen=0;
                 this.showHuayuan=0;
-                markersPlugin.showMarker("circle65");//显示你需要显示的marker
-                markersPlugin.showMarker("circle63");   
+                markersPlugin.showMarker("circle65");//显示你需要显示的marker 
                 markersPlugin.hideMarker("ding3D");
                 markersPlugin.hideMarker("tonghe3D");
               }
@@ -1115,6 +1113,7 @@ export default {
           if (markerid == "circle65") {
             this.viewer.setPanorama(this.imgurl65,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
                 markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
+                markersPlugin.showMarker("circle66");//显示你需要显示的marker
                 markersPlugin.hideMarker("circle63");
               }
             );
@@ -1124,6 +1123,7 @@ export default {
                 this.showTaihe = 0
                 markersPlugin.hideMarker("circle64");
                 markersPlugin.hideMarker("circle67");
+                markersPlugin.showMarker("circle68");//显示你需要显示的marker
                 markersPlugin.showMarker("circle68");//显示你需要显示的marker
               }
             );
@@ -1141,7 +1141,6 @@ export default {
               this.showtest2=0;
               this.showtest=0;
               markersPlugin.showMarker("circle69");
-              markersPlugin.showMarker("circle72");
               }
             );
           }
@@ -1157,14 +1156,13 @@ export default {
           if (markerid == "circle69") {
             this.viewer.setPanorama(this.imgurl69,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle70");
-              markersPlugin.showMarker("circle68(1)");
               this.showZhonghe =1;
               }
             );
           }
           if (markerid == "circle70") {
             this.viewer.setPanorama(this.imgurl70,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              markersPlugin.showMarker("circle69");
+              markersPlugin.showMarker("circle72");
               }
             );
           }
@@ -1202,22 +1200,20 @@ export default {
           }
           if (markerid == "circle76") {
             this.viewer.setPanorama(this.imgurl76,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              markersPlugin.showMarker("circle81");
               markersPlugin.hideMarker("circle78");
+              markersPlugin.showMarker("circle81");
               }
             );
           }
           if (markerid == "circle77") {
             this.viewer.setPanorama(this.imgurl77,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle78");
-              markersPlugin.showMarker("circle76");
               }
             );
           }
           if (markerid == "circle78") {
             this.viewer.setPanorama(this.imgurl78,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
-              markersPlugin.showMarker("circle79");
-              markersPlugin.showMarker("circle77");
+              
               markersPlugin.showMarker("circle81");
               this.showBaohe = 1;
               }
@@ -1240,6 +1236,7 @@ export default {
             this.viewer.setPanorama(this.imgurl82,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle85");
               this.showBaohe = 0;
+              this.showQianqingmen = 1;
               }
             );
           }
@@ -1247,6 +1244,8 @@ export default {
             this.viewer.setPanorama(this.imgurl85,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle88");
               markersPlugin.hideMarker("circle77");
+              markersPlugin.hideMarker("circle79");
+              this.showQianqingmen = 0;
               }
             );
           }
@@ -1259,42 +1258,50 @@ export default {
           if (markerid == "circle89") {
             this.viewer.setPanorama(this.imgurl89,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle92");
+              this.showQianqinggong=1;
               }
             );
           }
           if (markerid == "circle92") {
             this.viewer.setPanorama(this.imgurl92,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle91");
+               this.showQianqinggong=0;
               }
             );
           }
           if (markerid == "circle91") {
             this.viewer.setPanorama(this.imgurl91,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle96");
+              this.showJiaotai=1;
               }
             );
           }
           if (markerid == "circle96") {
             this.viewer.setPanorama(this.imgurl96,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle98");
+              this.showJiaotai=0;
               }
             );
           }
           if (markerid == "circle98") {
             this.viewer.setPanorama(this.imgurl98,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle100");
+              this.showKunninggong=1;
               }
             );
           }
           if (markerid == "circle100") {
             this.viewer.setPanorama(this.imgurl100,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle101");
+              this.showKunninggong=0;
+              this.showKunningmen=1;
               }
             );
           }
           if (markerid == "circle101") {
             this.viewer.setPanorama(this.imgurl101,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle103");
+              this.showKunningmen=0;
               }
             );
           }
@@ -1319,11 +1326,13 @@ export default {
           if (markerid == "circle110") {
             this.viewer.setPanorama(this.imgurl110,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle111");
+              this.showHuayuan=1;
               }
             );
           }
           if (markerid == "circle111") {
             this.viewer.setPanorama(this.imgurl111,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              this.showHuayuan=0;
               this.showEnd = 1;
               }
             );
