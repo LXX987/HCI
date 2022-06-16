@@ -5,10 +5,10 @@
     <el-button  @click="handle" type="primary" id="drawerButtonTAIHEDIAN" class="drawerButton" > 
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
-    <el-tooltip class="item" effect="dark" content="播放" placement="top">
+    <el-tooltip class="item" effect="dark" content="播放太和殿语音提示" placement="top">
         <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
+      <el-tooltip class="item" effect="dark" content="暂停太和殿语音提示" placement="top">
         <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
       <audio id="audio" src="../../static/语音资料/太和殿.mp3" hidden></audio>
@@ -27,96 +27,88 @@
   </div>
   <div id="zhonghedian" v-show="showZhonghe" >
   <el-button type="primary" class="drawerButton" id="drawerButtonZHONGHEDIAN" @click="handleZhonghe">
-      中和殿
   </el-button>
    <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/> 
-   <el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+   <el-tooltip class="item" effect="dark" content="播放中和殿语音讲解" placement="top">
+        <el-button @click="handlePlay('audioTaihe')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停中和殿语音讲解" placement="top">
+        <el-button @click="stopPlay('audioTaihe')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/中和殿.mp3" hidden></audio>
+      <audio id="audioTaihe" src="../../static/语音资料/中和殿.mp3" hidden></audio>
 
   </div>
   <div id="baohedian" v-show="showBaohe" >
   <el-button type="primary" class="drawerButton" id="drawerButtonBAOHEDIAN" @click="handleBaohe">
-    保和殿
  </el-button>
   <baohedian :baoheVisible="baoheVisible" @changeDrawer="changeBaohe"/><!--调用保和殿子组件-->
-  <el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+  <el-tooltip class="item" effect="dark" content="播放保和殿语音讲解" placement="top">
+        <el-button @click="handlePlay('audioBaohe')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停保和殿语音讲解" placement="top">
+        <el-button @click="stopPlay('audioBaohe')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/宝和殿.mp3" hidden></audio>
+      <audio id="audioBaohe" src="../../static/语音资料/保和殿.mp3" hidden></audio>
   </div>
 
   <div id="qianqingmen" v-show="showQianqingmen" >
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
-    乾清门
 </el-button>
 <qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
 <!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
   </div>
   <div id="qianqinggong" v-show="showQianqinggong" >
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
-    乾清宫
 </el-button>
-<el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+<el-tooltip class="item" effect="dark" content="播放乾清宫语音讲解" placement="top">
+        <el-button @click="handlePlay('audioqianqing')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停乾清宫语音讲解" placement="top">
+        <el-button @click="stopPlay('audioqianqing')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/乾清宫.mp3" hidden></audio>
+      <audio id="audioqianqing" src="../../static/语音资料/乾清宫.mp3" hidden></audio>
 <qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
   </div>
   
   <div id="jiaotai" v-show="showJiaotai" >
   <el-button type="primary" class="drawerButton" id="drawerButtonJIAOTAIDIAN" @click="handleJiaotai">
-    交泰殿
 </el-button>
 <jiaotai :jiaotaiVisible="jiaotaiVisible" @changeDrawer="changeJiaotai"/>
-<el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+<el-tooltip class="item" effect="dark" content="播放交泰殿语音讲解" placement="top">
+        <el-button @click="handlePlay('audiojiaotai')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停交泰殿语音讲解" placement="top">
+        <el-button @click="stopPlay('audiojiaotai')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/交泰殿.mp3" hidden></audio>
+      <audio id="audiojiaotai" src="../../static/语音资料/交泰殿.mp3" hidden></audio>
   </div>
 <div id="kunninggong" v-show="showKunninggong" >
   <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGGONG" @click="handleKunninggong">
-    坤宁宫
 </el-button>
 <kunninggong :kunninggongVisible="kunninggongVisible" @changeDrawer="changeKunninggong"/>
-<el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+<el-tooltip class="item" effect="dark" content="播放坤宁宫语音讲解" placement="top">
+        <el-button @click="handlePlay('audiokunning')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停坤宁宫语音讲解" placement="top">
+        <el-button @click="stopPlay('audiokunning')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/坤宁宫.mp3" hidden></audio>
+      <audio id="audiokunning" src="../../static/语音资料/坤宁宫.mp3" hidden></audio>
   </div>
   <div id="kunningmen" v-show="showKunningmen" >
   <el-button type="primary" class="drawerButton" id="drawerButtonKUNNINGMENG" @click="handleKunningmen">
-    坤宁门
 </el-button>
 <kunningmen :kunningmenVisible="kunningmenVisible" @changeDrawer="changeKunningmen"/>
   </div>
   <div id="huayuan" v-show="showHuayuan" >
   <el-button type="primary" class="drawerButton" id="drawerButtonYUHUAYUAN" @click="handleHuayuan">
-    御花园
 </el-button>
-<el-tooltip class="item" effect="dark" content="播放" placement="top">
-        <el-button @click="handlePlay('audio')" type="primary" id="startMusic" class="startMusicButton"></el-button>
+<el-tooltip class="item" effect="dark" content="播放御花园语音讲解" placement="top">
+        <el-button @click="handlePlay('audioyuhuayuan')" type="primary" id="startMusic" class="startMusicButton"></el-button>
       </el-tooltip>
-      <el-tooltip class="item" effect="dark" content="暂停" placement="top">
-        <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
+      <el-tooltip class="item" effect="dark" content="暂停御花园语音讲解" placement="top">
+        <el-button @click="stopPlay('audioyuhuayuan')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
-      <audio id="audio" src="../../static/语音资料/御花园.mp3" hidden></audio>
+      <audio id="audioyuhuayuan" src="../../static/语音资料/御花园.mp3" hidden></audio>
 <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
 
   </div>
@@ -989,6 +981,7 @@ export default {
           }
           if (markerid == "circle66") {
             this.viewer.setPanorama(this.imgurl66,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+                this.showTaihe = 0
                 markersPlugin.hideMarker("circle64");
                 markersPlugin.hideMarker("circle67");
                 markersPlugin.showMarker("circle68");//显示你需要显示的marker
@@ -1025,6 +1018,7 @@ export default {
             this.viewer.setPanorama(this.imgurl69,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle70");
               markersPlugin.showMarker("circle68(1)");
+              this.showZhonghe =1;
               }
             );
           }
@@ -1044,6 +1038,7 @@ export default {
             this.viewer.setPanorama(this.imgurl72,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle77");
               markersPlugin.hideMarker("circle69");
+              this.showZhonghe =0;
               }
             );
           }
@@ -1083,6 +1078,8 @@ export default {
             this.viewer.setPanorama(this.imgurl78,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle79");
               markersPlugin.showMarker("circle77");
+              markersPlugin.showMarker("circle81");
+              this.showBaohe = 1;
               }
             );
           }
@@ -1095,18 +1092,21 @@ export default {
           if (markerid == "circle81") {
             this.viewer.setPanorama(this.imgurl81,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle82");
+              this.showBaohe = 0;
               }
             );
           }
           if (markerid == "circle82") {
             this.viewer.setPanorama(this.imgurl82,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle85");
+              this.showBaohe = 0;
               }
             );
           }
           if (markerid == "circle85") {
             this.viewer.setPanorama(this.imgurl85,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
               markersPlugin.showMarker("circle88");
+              markersPlugin.hideMarker("circle77");
               }
             );
           }
