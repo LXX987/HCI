@@ -7,7 +7,6 @@ import tonghe3D from '@/components/tonghe3D'
 import ding3D from '@/components/ding3D'
 import gifvedio from '@/components/gifvedio'
 import TAIHEDIAN from '@/components/TAIHEDIAN'
-import supplierAllBack from '@/components/supplierAllBack'
 import CReel from '@/components/CReel'
 import taihepoint from '@/components/taihepoint'
 import photo from '@/components/photo'
@@ -75,11 +74,6 @@ export default new Router({
       path: '/TAIHEDIAN',
       name: 'TAIHEDIAN',
       component: TAIHEDIAN
-    },
-    {
-      path: '/supplierAllBack',
-      name: 'supplierAllBack',
-      component: supplierAllBack
     },
     {
       path: '/CReel',

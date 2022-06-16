@@ -179,8 +179,8 @@
   box-sizing: border-box;
   height: 500px;
   position: absolute;
-  left: 5%;
-  top: 10px;
+  left: 8%;
+  top: 45px;
   z-index: 999;
 }
 .or-container:before {
@@ -421,10 +421,10 @@ export default {
       showgugongIntro: false,
       eleindex: 0,
       piclist: [
-            {text: '播放/录制页面', bg: require('../assets/JiaoTaiDianIntro.png'), img:  require('../assets/JiaoTaiDianIntro.png')},
-            {text: '播放/录制页面', bg: require('../assets/QianQingGongIntro.png'), img:  require('../assets/QianQingGongIntro.png')},
-            {text: '播放/录制页面', bg: require('../assets/YuHuaYuanIntro.png'), img:  require('../assets/YuHuaYuanIntro.png')},
-            {text: '播放/录制页面', bg: require('../assets/gugongIntro1.jpg'), img:  require('../assets/gugongIntro1.jpg')}
+            {text: '播放/录制页面', bg: require('../assets/gugongIntro2.jpg'), img:  require('../assets/gugongIntro2.jpg')},
+            {text: '播放/录制页面', bg: require('../assets/gugongIntro4.jpg'), img:  require('../assets/gugongIntro4.jpg')},
+            {text: '播放/录制页面', bg: require('../assets/gugongIntro1.jpg'), img:  require('../assets/gugongIntro1.jpg')},
+            {text: '播放/录制页面', bg: require('../assets/gugongIntro3.jpg'), img:  require('../assets/gugongIntro3.jpg')}
             ],
       showfamousScerery: 0,
       maptable:[
