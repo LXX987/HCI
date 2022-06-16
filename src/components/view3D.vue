@@ -557,10 +557,7 @@ export default {
     },
     restart() {
       //刷新页面
-      this.$router.replace({
-        path: '/supplierAllBack',
-        name: 'supplierAllBack'
-      })
+      this.$router.push('/');
     },
     changeDrawer(v) {
       this.childVisible = v
@@ -1169,6 +1166,7 @@ export default {
             this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
                 this.showTaihe = 0;
                 markersPlugin.showMarker("circle64");
+                markersPlugin.showMarker("circle66");
                 markersPlugin.showMarker("tonghe3D");
                 markersPlugin.showMarker("ding3D");
                 markersPlugin.hideMarker("circle65");
