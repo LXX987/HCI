@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueI18n  from 'vue-i18n' //导入包
 import 'default-passive-events'
 import VueDragscroll from 'vue-dragscroll'
+import html2canvas from 'html2canvas'
+
 Vue.use(VueDragscroll);
 
 

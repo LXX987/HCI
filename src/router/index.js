@@ -10,6 +10,7 @@ import TAIHEDIAN from '@/components/TAIHEDIAN'
 import supplierAllBack from '@/components/supplierAllBack'
 import CReel from '@/components/CReel'
 import taihepoint from '@/components/taihepoint'
+import photo from '@/components/photo'
 
 Vue.use(Router)
 
@@ -19,6 +20,14 @@ export default new Router({
       path: '/Home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/photo',
+      name: 'photo',
+      component: photo,
+      meta:{
+      	keepAlive:true
+      }
     },
     {
       path: '/taihepoint',

@@ -467,6 +467,7 @@ export default {
     },
     photo() {
       console.log('jump');
+      this.$router.push('/photo');
     },
     jumpScenery() {
       this.showfamousScerery = 1;
@@ -650,6 +651,16 @@ export default {
                 visible: false, //标记的初始可见性。默认true
               },
               {
+                id: "circle63(1)",
+                tooltip: "出门",//太和殿内出去
+                longitude: -1.5, //位置
+                latitude: 0.00, //位置  
+                image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
+                width: 32,
+                height: 32,
+                visible: false, //标记的初始可见性。默认true
+              },
+              {
                 id: "circle64",
                 tooltip: "进入太和殿",//太和殿内
                 longitude: 0.0, //位置
@@ -661,7 +672,7 @@ export default {
               },
               {
                 id: "circle64(1)",
-                tooltip: "circle64(1)",//太和殿内
+                tooltip: "返回",//太和殿内
                 longitude: -16.2, //位置
                 latitude: -0.40, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -681,7 +692,7 @@ export default {
               },
               {
                 id: "circle66",
-                tooltip: "离开太和殿",//
+                tooltip: "进门",//
                 longitude: -1.0, //位置
                 latitude: 0.00, //位置  
                 image: 'https://s1.328888.xyz/2022/05/12/qQgu0.png',
@@ -1084,6 +1095,16 @@ export default {
               }
             );
           }
+          if (markerid == "circle63(1)") {
+            this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+                this.showTaihe = 0;
+                markersPlugin.showMarker("circle64");
+                markersPlugin.showMarker("tonghe3D");
+                markersPlugin.showMarker("ding3D");
+                markersPlugin.hideMarker("circle65");
+              }
+            );
+          }
           if (markerid == "circle64") {
             this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
                 this.showBaohe=0;
@@ -1105,7 +1126,7 @@ export default {
           if (markerid == "circle64(1)") {
             this.viewer.setPanorama(this.imgurl64,{ longitude: 7.8, latitude: 0.0 }, true).then(() => {
                 markersPlugin.showMarker("circle65");//显示你需要显示的marker
-                markersPlugin.showMarker("circle63");
+                markersPlugin.showMarker("circle63(1)");
                 this.showTaihe = 1
               }
             );
@@ -1113,7 +1134,7 @@ export default {
           if (markerid == "circle65") {
             this.viewer.setPanorama(this.imgurl65,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
                 markersPlugin.showMarker("circle64(1)");//显示你需要显示的marker
-                markersPlugin.showMarker("circle66");//显示你需要显示的marker
+                // markersPlugin.showMarker("circle66");//显示你需要显示的marker
                 markersPlugin.hideMarker("circle63");
               }
             );

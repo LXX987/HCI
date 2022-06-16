@@ -11,8 +11,12 @@
   },
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "canvg": "^4.0.0",
     "default-passive-events": "^2.0.0",
     "element-ui": "^2.12.0",
+    "file-saver": "^2.0.5",
+    "filesaver": "^0.0.13",
+    "html2canvas": "^1.4.1",
     "photo-sphere-viewer": "^4.6.1",
     "three": "^0.128.0",
     "vue": "^2.5.2",
