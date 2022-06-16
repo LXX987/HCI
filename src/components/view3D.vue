@@ -105,6 +105,7 @@
     <div style="margin-top: 20px; height: 200px;">
       <el-collapse-transition>
         <div v-show="show3">
+          <div class="transition-box" id="menuitem0" @click="showgugongIntro = !showgugongIntro"></div>
           <div class="transition-box" id="menuitem1" @click="showMap"></div>
           <div class="transition-box" id="menuitem2" @click="jumpScenery"></div>
           <div class="transition-box" id="menuitem3" @click="photo"></div>
@@ -124,11 +125,68 @@
     </el-carousel-item>
   </el-carousel></div>
   </div>
+  <div class="or-container" v-show="showgugongIntro">
+      <div class="box" :class="eleindex ==i?'eleactive':''" v-for="(ele,i) in piclist" :key="i" @mouseenter="enter(i)" @mouseleave="out(i)">
+        <img :src="ele.img">
+      </div>
+  </div>
   <div class="endBox" v-show="showEnd" @click="restart">
   </div>
 </div>
 </template>
 <style scoped>
+.box {
+  flex: 1;
+  overflow: hidden;
+  transition: .5s;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+  line-height: 0;
+  position: relative;
+}
+
+.box > img {
+  width: 100%;
+  /* height: calc(100% - 10vh); */
+  height: calc(100%);
+  -o-object-fit: cover;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.box > span {
+  font-size: 3.8vh;
+  display: block;
+  text-align: center;
+  height: 10vh;
+  line-height: 2.6;
+}
+.eleactive {
+  flex: 1 1 40%;
+}
+
+.eleactive > img {
+  width: 100%;
+  height: 100%;
+}
+/*手风琴样式*/
+.or-container {
+  display: flex;
+  width: 90%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  padding-left: 0%;
+  padding-right: 6%;
+  box-sizing: border-box;
+  height: 500px;
+  position: absolute;
+  left: 5%;
+  top: 10px;
+  z-index: 999;
+}
+.or-container:before {
+  background-color: rgba(0,0,0,0.4);
+  z-index: 999;
+}
 #Sceneryitem:hover {
   border: 2px solid #ffbc1f;
 }
@@ -204,6 +262,10 @@
 }
 #menuitem4 {
   background: url('../assets/origin.png') no-repeat;
+  background-size: 100% 100%;
+}
+#menuitem0 {
+  background: url('../assets/gugongIntroBox.png') no-repeat;
   background-size: 100% 100%;
 }
 .endBox {
@@ -356,6 +418,14 @@ export default {
     },
   data() {
     return {
+      showgugongIntro: false,
+      eleindex: 0,
+      piclist: [
+            {text: '播放/录制页面', bg: require('../assets/JiaoTaiDianIntro.png'), img:  require('../assets/JiaoTaiDianIntro.png')},
+            {text: '播放/录制页面', bg: require('../assets/QianQingGongIntro.png'), img:  require('../assets/QianQingGongIntro.png')},
+            {text: '播放/录制页面', bg: require('../assets/YuHuaYuanIntro.png'), img:  require('../assets/YuHuaYuanIntro.png')},
+            {text: '播放/录制页面', bg: require('../assets/gugongIntro1.jpg'), img:  require('../assets/gugongIntro1.jpg')}
+            ],
       showfamousScerery: 0,
       maptable:[
         {index:1, url: 'https://img1.imgtp.com/2022/06/16/JKfePBQq.jpg', name: '太和殿', path: 'taihe'},//太和殿
@@ -430,6 +500,18 @@ export default {
     };
   },
   methods: {
+    enter: function (i) {
+        // console.log(i)
+        this.eleindex = i
+        // if (this.eleindex === i) {
+        //   this.eleindex = -1
+        // } else {
+        //   this.eleindex = i
+        // }
+      },
+      out: function (i) {
+        this.imgindex = -1
+      },
     OnJump:function(e){ //点击图片触发的事件
         if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/JKfePBQq.jpg')    // 查看标签上的属性
         {
@@ -461,8 +543,6 @@ export default {
               }
             );
         }
-        
-
         this.showfamousScerery = 0;
     },
     photo() {
