@@ -9,8 +9,6 @@
         @on-load="onLoad" 
     src="../../static/model/he/file.obj"
     mtl="../../static/model/he/file.mtl"></model-obj>
-
-
   </div>
 </div></div>
 </template>

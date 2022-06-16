@@ -3,10 +3,11 @@
     <div class="intro">
       <el-button class="closeBoard" circle @click="closeBoard"></el-button>
     </div>
+    <div class="overflowhid">
     <div class="languageChange">
       <span>{{$t('m.taihedian')}}</span>
     </div>
-
+    </div>
     <div class="langButton">
       <el-radio-group v-model="langForm.radio" @change="onSubmit" size="mini" text-color="black" fill="#909399">
         <el-radio-button
@@ -90,14 +91,26 @@ export default {
 }
 </script>
 <style scoped>
+.overflowhid {
+  width:100%;
+  height:238px;
+ overflow-y:hidden;
+}
 .languageChange {
-  position: absolute;
-  left: 20px;
-  top: 280px;
+    position: absolute;
+    padding-left: 20px;
+    padding-right: 20px;
+    top: 227px;
+    width: calc(100% - 20px);
+    height: 217px;
+    overflow-y: auto;
+    font-family: cursive;
+    font-size: larger;
+    line-height: 24px;
 }
 .el-button {
-  margin-left: 323px;
-  margin-top: 0px;
+  margin-left: 250px;
+  margin-top: 7px;
   border: 4px solid #f7dd92;
 }
 .closeBoard {
@@ -106,8 +119,8 @@ export default {
 }
 .langButton{
   position: absolute;
-  right: 20px;
-  top: 540px;
+  left: 0px;
+  top: 13px;
 }
 .intro {
   width: 100%;

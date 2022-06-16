@@ -460,20 +460,22 @@ export default {
               {
                 id:"ding3D",
                 tooltip:"铜鼎",//太和殿出去
-                longitude: -7.2,//精度
+                longitude: -10,//精度
                 latitude: 0.00,//位置
-                image: '../assets/dingIcon.png',
+                image: 'https://img1.imgtp.com/2022/06/16/03mJR57Y.png',
                 width:32,
                 height: 32,
+                visible: false, //标记的初始可见性。默认true
               },
               {
-                id:"tonghe",
+                id:"tonghe3D",
                 tooltip:"铜鹤",//太和殿出去
-                longitude: 0.00,//精度
+                longitude: -14.4,//精度
                 latitude: 0.00,//位置
-                image: '../assets/craneIcon.png',
+                image: 'https://img1.imgtp.com/2022/06/16/LxNLb6ee.png',
                 width:32,
                 height: 32,
+                visible: false, //标记的初始可见性。默认true
               },  
               {
                 id: "circle34",
@@ -916,7 +918,7 @@ export default {
           if(markerid == "ding3D") {
               this.$router.push('/ding3D')
           }
-          if(markerid == "tonghe"){
+          if(markerid == "tonghe3D"){
             this.$router.push('/tonghe3D')
           }
           if (markerid == "circle34") {
