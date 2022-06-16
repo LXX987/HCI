@@ -39,7 +39,7 @@ export default {
           label: 'zh-CN'
         },
         {
-          txt: '英文',
+          txt: 'English',
           label: 'en-US'
         },
       ]
@@ -81,8 +81,15 @@ export default {
 <style scoped>
 .languageChange {
   position: absolute;
-  left: 20px;
-  top: 280px;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 227px;
+  width: calc(100% - 20px);
+  height: 217px;
+  overflow-y: auto;
+  font-family: cursive;
+  font-size: larger;
+  line-height: 24px;
 }
 .el-button {
   margin-left: 323px;
@@ -95,8 +102,8 @@ export default {
 }
 .langButton{
   position: absolute;
-  right: 20px;
-  top: 540px;
+  left: 0px;
+  top: 13px;
 }
 .intro {
   width: 100%;
@@ -108,5 +115,8 @@ export default {
   margin: 5% 10% 0% 0%;
   height: 80%;
   overflow: hidden;
+}
+/deep/ .el-radio-button--mini .el-radio-button__inner {
+  width: 70px;
 }
 </style>

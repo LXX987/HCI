@@ -40,7 +40,7 @@ export default {
           label: 'zh-CN'
         },
         {
-          txt: '英文',
+          txt: 'English',
           label: 'en-US'
         },
       ]
@@ -133,4 +133,8 @@ export default {
   height: 80%;
   overflow: hidden;
 }
+/deep/ .el-radio-button--mini .el-radio-button__inner {
+  width: 70px;
+}
+
 </style>
