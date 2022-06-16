@@ -1,5 +1,5 @@
 <template>
-  <div class="c-reel">
+  <div class="c-reel" @click="back">
     <div class="view" ref="view" :style="{width: viewWidth}">
       <div class="content" ref="reel" :style="scrollStyle">
         <img src="@/assets/map.jpg"/>
@@ -37,6 +37,9 @@ export default {
     this.handleStart();
   },
   methods: {
+    back() {
+      this.$router.push('/view3D');
+    },
     /**
      * 卷轴打开动画
      */
@@ -119,10 +122,11 @@ export default {
       top: 45px;
     }
 .c-reel {
-  position: absolute;
+  background: url('../assets/jumpbackground.png') no-repeat;
+  background-size: 100% 100%;
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 65%;
   transform: translate(-50%, -65%);
   width: 100%;
   height: 550px;

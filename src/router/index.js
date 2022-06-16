@@ -9,6 +9,7 @@ import gifvedio from '@/components/gifvedio'
 import TAIHEDIAN from '@/components/TAIHEDIAN'
 import supplierAllBack from '@/components/supplierAllBack'
 import CReel from '@/components/CReel'
+import taihepoint from '@/components/taihepoint'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/Home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/taihepoint',
+      name: 'taigepoint',
+      component: taihepoint
     },
     {
       path: '/view3D',
@@ -69,7 +75,10 @@ export default new Router({
     {
       path: '/CReel',
       name: 'CReel',
-      component: CReel
+      component: CReel,
+      meta:{
+      	keepAlive:true
+      }
     },
 
   ]
