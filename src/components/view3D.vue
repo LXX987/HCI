@@ -12,18 +12,11 @@
         <el-button @click="stopPlay('audio')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
       <audio id="audio" src="../../static/语音资料/太和殿.mp3" hidden></audio>
-    <!-- <taihe :taiheVisible="taiheVisible" @changeDrawer="changeTaihe"/> -->
-    
-    <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
-    <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
   </div>
   <div id="test2" v-show="showtest2"><!-- 在node25会显示，node26会隐藏 -->
     <el-button  @click="handle" type="primary" id="drawerButtonTAIHEMENG" class="drawerButton" > 
     </el-button>
     <Child :childVisible="childVisible" @changeDrawer="changeDrawer" />
-    <!-- <TAIHEDIAN style="z-index:999"></TAIHEDIAN> -->
-    <!-- <test :drawer_="drawer_" :direction="direction"></test> -->
-    <!-- <el-drawer title="我是标题" :visible.sync="drawer_" :with-header="false"><span>我来啦!</span></el-drawer> -->
   </div>
   <div id="zhonghedian" v-show="showZhonghe" >
   <el-button type="primary" class="drawerButton" id="drawerButtonZHONGHEDIAN" @click="handleZhonghe">
@@ -36,7 +29,6 @@
         <el-button @click="stopPlay('audioTaihe')" type="primary" id="stopMusic" class="stopMusicButton"></el-button>
       </el-tooltip>
       <audio id="audioTaihe" src="../../static/语音资料/中和殿.mp3" hidden></audio>
-
   </div>
   <div id="baohedian" v-show="showBaohe" >
   <el-button type="primary" class="drawerButton" id="drawerButtonBAOHEDIAN" @click="handleBaohe">
@@ -50,12 +42,10 @@
       </el-tooltip>
       <audio id="audioBaohe" src="../../static/语音资料/保和殿.mp3" hidden></audio>
   </div>
-
   <div id="qianqingmen" v-show="showQianqingmen" >
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINMENG" @click="handleQianqingmen">
 </el-button>
 <qianqingmen :qianqingmenVisible="qianqingmenVisible" @changeDrawer="changeQianqingmen" />
-<!-- <zhonghedian :zhongheVisible="zhongheVisible"  @changeDrawer="changeZhonghe"/>  -->
   </div>
   <div id="qianqinggong" v-show="showQianqinggong" >
   <el-button type="primary" class="drawerButton" id="drawerButtonQIANQINGONG" @click="handleQianqinggong">
@@ -69,7 +59,6 @@
       <audio id="audioqianqing" src="../../static/语音资料/乾清宫.mp3" hidden></audio>
 <qianqinggong :qianqinggongVisible="qianqinggongVisible" @changeDrawer="changeQianqinggong"/>
   </div>
-  
   <div id="jiaotai" v-show="showJiaotai" >
   <el-button type="primary" class="drawerButton" id="drawerButtonJIAOTAIDIAN" @click="handleJiaotai">
 </el-button>
@@ -110,16 +99,113 @@
       </el-tooltip>
       <audio id="audioyuhuayuan" src="../../static/语音资料/御花园.mp3" hidden></audio>
 <huayuan :huayuanVisible="huayuanVisible" @changeDrawer="changeHuayuan"/>
-
+  </div>
+  <div class="menu">
+    <div class="menuIcon" @click="show3 = !show3"></div>
+    <div style="margin-top: 20px; height: 200px;">
+      <el-collapse-transition>
+        <div v-show="show3">
+          <div class="transition-box" id="menuitem1" @click="showMap"></div>
+          <div class="transition-box" id="menuitem2" @click="jumpScenery"></div>
+          <div class="transition-box" id="menuitem3" @click="photo"></div>
+          <div class="transition-box" id="menuitem4" @click="restart"></div>
+        </div>
+      </el-collapse-transition>
+    </div>
+  </div>
+  <div>
+    <div class="famouePoints">
+      <el-carousel :interval="2000" type="card" height="200px" v-show="showfamousScerery">
+    <el-carousel-item v-for="item in maptable" :key="item.index">
+      <div id="Sceneryitem">
+      <span style="position: absolute; bottom: 10; left: 10;">{{item.name}}</span>
+      <img style="width:100%;"  @click="OnJump"  :src="item.url">
+      </div>
+    </el-carousel-item>
+  </el-carousel></div>
   </div>
   <div class="endBox" v-show="showEnd" @click="restart">
   </div>
-  <!-- <div id="test" v-show="showtest">
-    <Test></Test>这种是引入组件的方式，引入test组件，然后在node25会显示，node26会自动隐藏
-  </div> -->
 </div>
 </template>
 <style scoped>
+#Sceneryitem:hover {
+  border: 2px solid #ffbc1f;
+}
+.famouePoints {
+  position: absolute;
+  top: 100px;
+  left: 5%;
+  z-index: 999;
+  width: 90%;
+}
+  .el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 200px;
+    margin: 0;
+  }
+  
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+  
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
+.CReel {
+  z-index:999;
+  margin-top: 82px;
+}
+.menu {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 999;
+}
+.menuIcon {
+  width: 30px;
+  height: 30px;
+  background: url('../assets/menuIcon.png') no-repeat;
+  background-size: 100% 100%;
+}
+.menuIcon:hover {
+  width: 30px;
+  height: 30px;
+  background: url('../assets/menuIconHover.png') no-repeat;
+  background-size: 100% 100%;
+}
+.transition-box {
+  margin: 10px 20px;
+  width: 150.33px;
+  height: 36.67px;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.transition-box:hover {
+  width: 152.33px;
+  height: 38.67px;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  box-sizing: border-box;
+}
+#menuitem1 {
+  background: url('../assets/menuMap.png') no-repeat;
+  background-size: 100% 100%;
+}
+#menuitem2 {
+  background: url('../assets/famousScenery.png') no-repeat;
+  background-size: 100% 100%;
+}
+#menuitem3 {
+  background: url('../assets/photo.png') no-repeat;
+  background-size: 100% 100%;
+}
+#menuitem4 {
+  background: url('../assets/origin.png') no-repeat;
+  background-size: 100% 100%;
+}
 .endBox {
   width: 258.4px;
   height: 100.4px;
@@ -251,7 +337,6 @@ import kunningmen from'./kunningmen.vue';
 import huayuan from'./huayuan.vue';
 import taihe from'./taihe.vue';
 import TAIHEDIAN from './TAIHEDIAN.vue'
-import CReel from './CReel'
 
 export default {
   name:'view3D',
@@ -267,10 +352,21 @@ export default {
         kunningmen,
         huayuan,
         taihe,
-        TAIHEDIAN
+        TAIHEDIAN,
     },
   data() {
     return {
+      showfamousScerery: 0,
+      maptable:[
+        {index:1, url: 'https://img1.imgtp.com/2022/06/16/JKfePBQq.jpg', name: '太和殿', path: 'taihe'},//太和殿
+        {index:2, url: 'https://img1.imgtp.com/2022/06/16/IRGkAO83.jpg', name: '交泰殿', path: 'jiaotai'},//交泰殿
+        {index:3, url: 'https://img1.imgtp.com/2022/06/16/w3RERcFC.jpg', name: '保和殿', path: 'baohe'},//保和殿
+        {index:4, url: 'https://img1.imgtp.com/2022/06/16/RPHfMQaA.jpg', name: '坤宁宫', path: 'kunning'},//坤宁宫
+        {index:5, url: 'https://img1.imgtp.com/2022/06/16/STJUH9kp.jpg', name: '乾清宫', path: 'qianqing'},//乾清宫
+        {index:6, url: 'https://img1.imgtp.com/2022/06/16/FWVsS6tw.jpg', name: '御花园', path: 'yuhua'},//御花园
+        {index:7, url: 'https://img1.imgtp.com/2022/06/16/mI1LZTQe.jpg', name: '中和殿', path: 'zhonghe'},//中和殿
+      ],
+      show3: false,
       showEnd: 0,
       childVisible: false, //是否展示抽屉
       zhongheVisible:false,//是否展示抽屉
@@ -306,13 +402,13 @@ export default {
       imgurl68: require("@/assets/pic/node68.jpg"),
       imgurl69: require("@/assets/pic/node69.jpg"),
       imgurl70: require("@/assets/pic/node70.jpg"),
-      imgurl71: require("@/assets/pic/node71.jpg"),//
+      imgurl71: require("@/assets/pic/node71.jpg"),
       imgurl72: require("@/assets/pic/node72.jpg"),
       imgurl73: require("@/assets/pic/node73.jpg"),
       imgurl74: require("@/assets/pic/node74.jpg"),
       imgurl75: require("@/assets/pic/node75.jpg"),
       imgurl76: require("@/assets/pic/node76.jpg"),
-      imgurl77: require("@/assets/pic/node77.jpg"),//
+      imgurl77: require("@/assets/pic/node77.jpg"),
       imgurl78: require("@/assets/pic/node78.jpg"),
       imgurl79: require("@/assets/pic/node79.jpg"),
       imgurl81: require("@/assets/pic/node81.jpg"),
@@ -334,6 +430,50 @@ export default {
     };
   },
   methods: {
+    OnJump:function(e){ //点击图片触发的事件
+        if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/JKfePBQq.jpg')    // 查看标签上的属性
+        {
+          this.viewer.setPanorama(this.imgurl63,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/IRGkAO83.jpg'){
+          this.viewer.setPanorama(this.imgurl91,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/w3RERcFC.jpg'){
+          this.viewer.setPanorama(this.imgurl77,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/RPHfMQaA.jpg'){
+          this.viewer.setPanorama(this.imgurl98,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/STJUH9kp.jpg'){
+          this.viewer.setPanorama(this.imgurl88,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/FWVsS6tw.jpg'){
+          this.viewer.setPanorama(this.imgurl111,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        } else if(e.path[0].currentSrc=='https://img1.imgtp.com/2022/06/16/mI1LZTQe.jpg'){
+          this.viewer.setPanorama(this.imgurl69,{ longitude: 0.0, latitude: 0.0 }, true).then(() => {
+              }
+            );
+        }
+        
+
+        this.showfamousScerery = 0;
+    },
+    photo() {
+      console.log('jump');
+    },
+    jumpScenery() {
+      this.showfamousScerery = 1;
+    },
+    showMap() {
+      this.$router.push('/CReel');
+    },
     restart() {
       //刷新页面
       this.$router.replace({
