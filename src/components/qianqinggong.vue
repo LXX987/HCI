@@ -3,10 +3,11 @@
     <div class="intro">
       <el-button class="closeBoard" circle @click="closeBoard"></el-button>
     </div>
+    <div class="overflowhid">
     <div class="languageChange">
       <span>{{$t('m.qianqinggong')}}</span>
     </div>
-
+    </div>
     <div class="langButton">
       <el-radio-group v-model="langForm.radio" @change="onSubmit" size="mini" text-color="black" fill="#909399">
         <el-radio-button
@@ -55,8 +56,8 @@ export default {
       },
       //值变化的时候会被调用
       set(v) {
-        console.log(z, 'z')
-        this.$emit('changeDrawer', z)
+        console.log(v, 'v')
+        this.$emit('changeDrawer', v)
       },
     },
   },
@@ -79,6 +80,11 @@ export default {
 }
 </script>
 <style scoped>
+.overflowhid {
+  width:100%;
+  height:238px;
+ overflow-y:hidden;
+}
 .languageChange {
   position: absolute;
   padding-left: 20px;
